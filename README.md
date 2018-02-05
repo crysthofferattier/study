@@ -2,4 +2,4 @@
 
 ## Courses
 
-* [Nmap](https://www.udemy.com/the-complete-nmap-ethical-hacking-course-network-security/)
+* [Nmap](https://nmap.org/) - Network Mapper
