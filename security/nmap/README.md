@@ -546,5 +546,5 @@ $ namp -p80 --script-updatedb
 ### Script
 * Lua Base language
 	- Lua v5.3 documentation [here](https://www.lua.org/manual/5.3/)
-	- Nmap Script Engine Documentatio [here](https://www.google.com.br/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&ved=0ahUKEwivoe6vvpfZAhUBk5AKHSR6AZsQFgg8MAM&url=https%3A%2F%2Fmedia.blackhat.com%2Fbh-us-10%2Fwhitepapers%2FVaskovitch%2FBlackHat-USA-2010-Fyodor-Fifield-NMAP-Scripting-Engine-wp.pdf&usg=AOvVaw06vXEQszzRbCRbAC3m1umI)
-	- Script Example [here](https://svn.nmap.org/nmap/scripts/rpcinfo.nse)
+	- Nmap Script Engine Documentatio [here](https://media.blackhat.com/bh-us-10/whitepapers/Vaskovitch/BlackHat-USA-2010-Fyodor-Fifield-NMAP-Scripting-Engine-wp.pdf)
+	- Script  Example [here](https://svn.nmap.org/nmap/scripts/rpcinfo.nse)
