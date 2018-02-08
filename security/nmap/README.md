@@ -455,6 +455,7 @@ $ nmap -sC scanme.nmap.org -v
 	- portrule(host, port)
 	- postrule()
 
+### Script's usage:
 * --script [categories/script.nse]: Run script
 ```
 $ nmap 192.168.0.106 --script default,safe
@@ -475,11 +476,67 @@ $ nmap --script "not intruse" -vv 192.168.0.106
 $ nmap --script "vuln,exploit" -vv 192.168.0.106 -sV -O
 $ nmap --script ip-geolocation-* facebook.com
 $ nmap --script whois* facebook.com
-
 ```
 
 * Obs:
 	- ip-geolocation-maxmind.nse: Download database
 		* [Maxmind database](http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz) 
 	- ip-geolocation-ipinfodb.nse: register API key
-		* [API key](http://ipinfodb.com/register.php) 
+		* [API key](http://ipinfodb.com/register.php)
+
+## Nmap Scripting Engine (NSE) Part 4 - Usage and Cool Scripts
+
+### vulscan:
+* Vulscan is a module which enhances nmap to a vulnerability scanner.
+- [Documentation](http://www.computec.ch/projekte/vulscan/?s=documentation) 
+- [Downlaod](http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz)
+
+* Installation
+	Please install the files into the following folder of your Nmap installation:
+```
+$ cd /usr/share/nmap/scripts/
+$ wget http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz
+$ tar xvfz nmap_nse_vulscan-2.0.tar.gz
+$ cd vulscan/
+$ ls -l
+```
+
+* Usage
+	You have to run the following minimal command to initiate a simple vulnerability scan:
+```
+$ nmap -sV --script=vulscan/vulscan.nse www.example.com
+```
+
+### Script's args and help
+
+* --script-args=<n1=v1,[n2=v2,...]>: provide arguments to scripts
+```
+$ nmap -sV --script=vulscan/vulscan.nse --script-args vulscaninteractive=1 192.168.0.106
+```
+
+* --script-help=[Lua scripts]: Show help about scripts. [script-name] is a comma-separated list of script-files or
+           script-categories.
+```
+$ nmap --script-help [scaript-name] snmp-sysdescr
+$ nmap --script-help snmp-sysdescr
+```
+
+### Script's
+```
+$ nmap --script http-open-proxy -p8080 192.168.0.100-106
+$ nmap -p80 --script http-brute --script-args http-brute.path=/admin/ scanme.nmap.org
+$ nmap -p80 --script http-brute --script-args userdb=/var/usernames.txt,passdb=/var/pwd.txt scanme.nmap.org
+$ nmap -p80 --script http-brute --script-args brute.firstOnly
+$ nmap -p80 --script http-wordpress-brute --script-args http-wordpress-brute.threads=5 scanme.nmap.org
+$ nmap -p80 --script http-wordpress-brute --script-args http-wordpress-brute.threads=5 scanme.nmap.org
+$ namp -p25 --script smtp-brute scanme.nmap.org
+$ namp -p80 --script http-waf-defect scanme.nmap.org
+$ namp -p80 --script http-unsafe-output-escaping scanme.nmap.org
+$ namp -p80 --script http-sql-injection scanme.nmap.org
+$ namp -p3306 --script mysql-databases --script-args mysqluser=[user-name],mysqlpassword=[user-password] scanme.nmap.org
+$ namp -sV --script smtp-open-relay -v -iR 100 -p 25 -n -Pn
+```
+### Update nmap script's database
+```
+$ namp -p80 --script-updatedb
+```
