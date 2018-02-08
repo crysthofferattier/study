@@ -290,26 +290,26 @@ PROTOCOL STATE         SERVICE
 	$ nmap 192.168.0.106 -v -p http,https,ftp
 	```
 
-	- U: UDP ports
+- U:/T: UDP ports and TCP ports
 
-		```
-		$ nmap 192.168.0.106 -v -p U:53,111,137,5353,T:21-25,80,139,8080 -sU -sS
+```
+$ nmap 192.168.0.106 -v -p U:53,111,137,5353,T:21-25,80,139,8080 -sU -sS
 
-		Result:
-		PORT     STATE  SERVICE
-		21/tcp   open   ftp
-		22/tcp   open   ssh
-		23/tcp   open   telnet
-		24/tcp   closed priv-mail
-		25/tcp   open   smtp
-		80/tcp   open   http
-		139/tcp  open   netbios-ssn
-		8080/tcp closed http-proxy
-		53/udp   open   domain
-		111/udp  open   rpcbind
-		137/udp  open   netbios-ns
-		5353/udp closed zeroconf
-		```
+Result:
+PORT     STATE  SERVICE
+21/tcp   open   ftp
+22/tcp   open   ssh
+23/tcp   open   telnet
+24/tcp   closed priv-mail
+25/tcp   open   smtp
+80/tcp   open   http
+139/tcp  open   netbios-ssn
+8080/tcp closed http-proxy
+53/udp   open   domain
+111/udp  open   rpcbind
+137/udp  open   netbios-ns
+5353/udp closed zeroconf
+```
 
 - -p-: All ports
 
