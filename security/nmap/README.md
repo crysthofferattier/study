@@ -488,8 +488,8 @@ $ nmap --script whois* facebook.com
 
 ### vulscan:
 * Vulscan is a module which enhances nmap to a vulnerability scanner.
-- [Documentation](http://www.computec.ch/projekte/vulscan/?s=documentation) 
-- [Downlaod](http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz)
+	- [Documentation](http://www.computec.ch/projekte/vulscan/?s=documentation) 
+	- [Downlaod](http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz)
 
 * Installation
 	Please install the files into the following folder of your Nmap installation:
@@ -507,7 +507,7 @@ $ ls -l
 $ nmap -sV --script=vulscan/vulscan.nse www.example.com
 ```
 
-### Script's args and help
+### Script args and help
 
 * --script-args=<n1=v1,[n2=v2,...]>: provide arguments to scripts
 ```
@@ -521,13 +521,12 @@ $ nmap --script-help [scaript-name] snmp-sysdescr
 $ nmap --script-help snmp-sysdescr
 ```
 
-### Script's
+### Script
 ```
 $ nmap --script http-open-proxy -p8080 192.168.0.100-106
 $ nmap -p80 --script http-brute --script-args http-brute.path=/admin/ scanme.nmap.org
 $ nmap -p80 --script http-brute --script-args userdb=/var/usernames.txt,passdb=/var/pwd.txt scanme.nmap.org
 $ nmap -p80 --script http-brute --script-args brute.firstOnly
-$ nmap -p80 --script http-wordpress-brute --script-args http-wordpress-brute.threads=5 scanme.nmap.org
 $ nmap -p80 --script http-wordpress-brute --script-args http-wordpress-brute.threads=5 scanme.nmap.org
 $ namp -p25 --script smtp-brute scanme.nmap.org
 $ namp -p80 --script http-waf-defect scanme.nmap.org
@@ -536,7 +535,16 @@ $ namp -p80 --script http-sql-injection scanme.nmap.org
 $ namp -p3306 --script mysql-databases --script-args mysqluser=[user-name],mysqlpassword=[user-password] scanme.nmap.org
 $ namp -sV --script smtp-open-relay -v -iR 100 -p 25 -n -Pn
 ```
-### Update nmap script's database
+
+### Update nmap script database
 ```
 $ namp -p80 --script-updatedb
 ```
+
+## Writing Nmap Scripting Engine (NSE) Scripts
+
+### Script
+* Lua Base language
+	- Lua v5.3 documentation [here](https://www.lua.org/manual/5.3/)
+	- Nmap Script Engine Documentatio [here](https://www.google.com.br/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&ved=0ahUKEwivoe6vvpfZAhUBk5AKHSR6AZsQFgg8MAM&url=https%3A%2F%2Fmedia.blackhat.com%2Fbh-us-10%2Fwhitepapers%2FVaskovitch%2FBlackHat-USA-2010-Fyodor-Fifield-NMAP-Scripting-Engine-wp.pdf&usg=AOvVaw06vXEQszzRbCRbAC3m1umI)
+	- Script Example [here](https://svn.nmap.org/nmap/scripts/rpcinfo.nse)
