@@ -283,15 +283,13 @@ PROTOCOL STATE         SERVICE
 ## 07. Nmap Port Specification Service Version & OS Detection
 
 ### Nmap Port Specification
-* -p [port ranges]: Only scan specified ports
-	
-	```
-	$ nmap 192.168.0.106 -v -p 21-1000
-	$ nmap 192.168.0.106 -v -p http,https,ftp
-	```
+* -p [port ranges]: Only scan specified ports	
+```
+$ nmap 192.168.0.106 -v -p 21-1000
+$ nmap 192.168.0.106 -v -p http,https,ftp
+```
 
 - U:/T: UDP ports and TCP ports
-
 ```
 $ nmap 192.168.0.106 -v -p U:53,111,137,5353,T:21-25,80,139,8080 -sU -sS
 
@@ -312,7 +310,6 @@ PORT     STATE  SERVICE
 ```
 
 - -p-: All ports
-
 ```
 $ nmap 192.168.0.106 -v -p-
 $ nmap 192.168.0.106 -v -p-65535 (1 to 65535)
