@@ -311,13 +311,13 @@ PROTOCOL STATE         SERVICE
 		5353/udp closed zeroconf
 		```
 
-	- -p-: All ports
+- -p-: All ports
 
-		```
-		$ nmap 192.168.0.106 -v -p-
-		$ nmap 192.168.0.106 -v -p-65535 (1 to 65535)
-		$ nmap 192.168.0.106 -v -p0-  (0 to 65535)
-		```
+```
+$ nmap 192.168.0.106 -v -p-
+$ nmap 192.168.0.106 -v -p-65535 (1 to 65535)
+$ nmap 192.168.0.106 -v -p0-  (0 to 65535)
+```
 
 * -F: Fast mode, scan fewer ports than the default scan (100 ports)
 ```
