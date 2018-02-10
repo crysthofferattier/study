@@ -85,7 +85,14 @@
 	- Cifra de substituição
 	- Deslocamento do alfabeto
 	- Uso de chave para definir o deslocamento
-	- ROT13
+	- ROT13 [rot13.com](http://www.rot13.com/)
 	- Análise de frequência x Cifra de César
 
-![Image of Yaktocat](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Caesar3.svg/856px-Caesar3.svg.png)
+![caesar-chiper](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Caesar3.svg/856px-Caesar3.svg.png)
+
+* Scytale
+	- Cifra de transposição
+	- Cilindro criptográfico
+	- A chave é o diâmetro do cilindro
+
+![scytale](https://upload.wikimedia.org/wikipedia/commons/5/51/Skytale.png)
