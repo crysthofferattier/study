@@ -55,4 +55,15 @@
 * Alianças
 * Informações sigilosas
 
-### 
+### Esteganografia
+
+* Mensagens ocultas
+* Esteganografia x Criptografia
+
+### Criptografia
+
+* Mensagens visiveis
+* Mensagens incompreensíveis
+* Esteganografia x Criptografia
+
+## 04. As primeiras técnicas
