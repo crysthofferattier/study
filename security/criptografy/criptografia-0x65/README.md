@@ -88,4 +88,4 @@
 	- ROT13
 	- Análise de frequência x Cifra de César
 
-![Image of Yaktocat](https://pt.wikipedia.org/wiki/Cifra_de_C%C3%A9sar#/media/File:Caesar3.svg)
+![Image of Yaktocat](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Caesar3.svg/856px-Caesar3.svg.png)
