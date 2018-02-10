@@ -96,3 +96,14 @@
 	- A chave é o diâmetro do cilindro
 
 ![scytale](https://upload.wikimedia.org/wikipedia/commons/5/51/Skytale.png)
+
+### Cifras polialfabéticas
+
+* Cifra de Vigenere
+	- Uso de mais de um afalbeto no algoritmo
+	- Uso de uma palavra secreta
+	- rias cifras de César em uma mensagem
+	- Tamanho da palavra secreta
+	- Análise de frequência x Cfras polialfabeticas
+
+![vigenere-square-shading](https://upload.wikimedia.org/wikipedia/commons/9/9a/Vigen%C3%A8re_square_shading.svg)
