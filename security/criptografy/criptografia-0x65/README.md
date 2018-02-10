@@ -32,4 +32,27 @@
 * Análise de cifras existentes
 * Formas de quebra de cifras
 
+### Criptografy
 
+* Escrita codificada
+* Cifras
+* Chaves
+* Algoritmos
+* Cifrar x Decifrar
+
+### Criptoanálise
+
+* Estudo das formas de se quebrar cifras
+* Força bruta
+* Análise de frequencia
+* Algortimos defeituosos
+
+##  03. Criptografia na antiguidade
+
+### As necessidades
+
+* Conflitos
+* Alianças
+* Informações sigilosas
+
+### 
