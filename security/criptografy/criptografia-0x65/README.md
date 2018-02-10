@@ -67,3 +67,25 @@
 * Esteganografia x Criptografia
 
 ## 04. As primeiras técnicas
+
+### Substituição
+
+* Troca de caracteres
+* Uso de diversos símbolos
+* Uso de caracteres combinados
+
+### Transposição
+
+* Embaralhamento dos caracteres
+* Uso dos mesmos símbolos
+
+### Cifras monoalfabéticas
+
+* Cifra de César
+	- Cifra de substituição
+	- Deslocamento do alfabeto
+	- Uso de chave para definir o deslocamento
+	- ROT13
+	- Análise de frequência x Cifra de César
+
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
