@@ -1,4 +1,4 @@
-# Codes of conduct
+# Code of conduct
 
 ## Caesar cipher
 
@@ -12,7 +12,7 @@
 
 * Usage
 ```
-$ python caesar-cipher.py files/plain-text [key] [function]> files/encode-text
+$ python caesar-cipher.py [plain-text-file] [key] [function] > [result-file]
 ```
 
 * Encode example:
@@ -22,5 +22,5 @@ $ python caesar-cipher.py files/plain-text 7 enc > files/encode-text
 
 * Encode example:
 ```
-$ python caesar-cipher.py files/plain-text 7 dec > files/decode-text
+$ python caesar-cipher.py files/encode-text 7 dec > files/decode-text
 ```
