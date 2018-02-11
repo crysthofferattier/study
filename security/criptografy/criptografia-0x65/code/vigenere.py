@@ -3,6 +3,14 @@
 import sys
 from string import lowercase as lc
 
+
+def get_file_content(file_path):
+	file = open(file_path, 'r')
+	text = file.read().lower()
+
+	return text
+
+
 def main():
 	result 		= ''
 	file_path 	= sys.argv[1]
