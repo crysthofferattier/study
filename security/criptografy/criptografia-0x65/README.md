@@ -144,3 +144,6 @@
 
 ### Implementando a cifra de César usando Python
 * [caesar-cipher.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code/caesar-cipher.py)
+
+### Quebrando a cifra de César (brute force)
+* [caesar-cipher-brute-force.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code/caesar-cipher-brute-force.py)
