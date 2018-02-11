@@ -202,3 +202,7 @@
 ### Implementando a cifra de Vigenère em Python
 
 * [vigenere.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code/vigenere.py)
+
+### Implementando uma análise de frequência
+
+* [frequency-analysis.py](www.google.com)
