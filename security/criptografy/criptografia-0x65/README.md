@@ -88,6 +88,9 @@
 	- ROT13 [rot13.com](http://www.rot13.com/)
 	- Análise de frequência x Cifra de César
 
+	- [cryptii.com/caesar-cipher](https://cryptii.com/caesar-cipher)
+	- [rot13.com](http://www.rot13.
+
 ![caesar-chiper](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Caesar3.svg/856px-Caesar3.svg.png)
 
 * Scytale
