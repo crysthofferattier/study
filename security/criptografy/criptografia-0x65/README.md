@@ -23,56 +23,48 @@
 
 ### Criptografy
 
-### Criptologia
+* Criptologia
+	- Estudo de toda forma de escrita codificada
+	- Cifras
+	- Chaves
+	- Algorítmos
+	- Análise de cifras existentes
+	- Formas de quebra de cifras
 
-* Estudo de toda forma de escrita codificada
-* Cifras
-* Chaves
-* Algorítmos
-* Análise de cifras existentes
-* Formas de quebra de cifras
+* Criptografy
+	- Escrita codificada
+	- Cifras
+	- Chaves
+	- Algoritmos
+	- Cifrar x Decifrar
 
-### Criptografy
+* Criptoanálise
+	- Estudo das formas de se quebrar cifras
+	- Força bruta
+	- Análise de frequencia
+	- Algortimos defeituosos
 
-* Escrita codificada
-* Cifras
-* Chaves
-* Algoritmos
-* Cifrar x Decifrar
+* Criptografia na antiguidade
+	- As necessidades
+		- Conflitos
+		- Alianças
+		- Informações sigilosas
 
-### Criptoanálise
+	- Esteganografia
+		- Mensagens ocultas
+		- Esteganografia x Criptografia
 
-* Estudo das formas de se quebrar cifras
-* Força bruta
-* Análise de frequencia
-* Algortimos defeituosos
+	- Criptografia
+		- Mensagens visiveis
+		- Mensagens incompreensíveis
+		- Esteganografia x Criptografia
 
-##  03. Criptografia na antiguidade
+### As primeiras técnicas
 
-### As necessidades
-
-* Conflitos
-* Alianças
-* Informações sigilosas
-
-### Esteganografia
-
-* Mensagens ocultas
-* Esteganografia x Criptografia
-
-### Criptografia
-
-* Mensagens visiveis
-* Mensagens incompreensíveis
-* Esteganografia x Criptografia
-
-## 04. As primeiras técnicas
-
-### Substituição
-
-* Troca de caracteres
-* Uso de diversos símbolos
-* Uso de caracteres combinados
+* Substituição
+	- Troca de caracteres
+	- Uso de diversos símbolos
+	- Uso de caracteres combinados
 
 ### Transposição
 
@@ -115,7 +107,7 @@
 
 ## Conhecendo as cifras clássicas
 
-### 01. Entendendo a cifra de César
+* Entendendo a cifra de César
 
 |  A |  B |  C |  D |  E |  F |  G |  H |  I |  J |  K |  L |  M | N  | O  | P  |  Q |  R |  S |  T |  U |  V |  W |  X | Y  |  Z |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
@@ -153,6 +145,6 @@
 
 - Result: CRIPTO...
 
-### 02. Implementando a cifra de César usando Python
+* Implementando a cifra de César usando Python
 
-* [caesar-cipher.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code/caesar-cipher.py)
+	- [caesar-cipher.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code/caesar-cipher.py)
