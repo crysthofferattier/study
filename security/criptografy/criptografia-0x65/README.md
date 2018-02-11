@@ -88,7 +88,7 @@
 	- ROT13
 	- Análise de frequência x Cifra de César
 
-![caesar-chiper](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Caesar3.svg/856px-Caesar3.svg.png)
+![caesar-cipher](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Caesar3.svg/856px-Caesar3.svg.png)
 
 * Scytale
 	- Cifra de transposição
@@ -150,6 +150,9 @@
 | U | (20-5 = 05) | P |
 | Y | (24-5 = 19) | T |
 | T | (19-5 = 14) | O |
-| ... |     ...      | ... |
 
 - Result: CRIPTO...
+
+### 02. Implementando a cifra de César usando Python
+
+* [caesar-cipher.py](www.google.com)
