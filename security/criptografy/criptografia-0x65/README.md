@@ -164,16 +164,19 @@
 * Plaintext: CRIPTOGRAFIA
 
 * Key and positions:
+
 |  S |  E |  N |  H |  A |
 | -- | -- | -- | -- | -- |
 | 18 | 04 | 13 | 07 | 00 |
 
 
 * Plaintext and positions:
+
 |  C |  R |  I |  P |  T |  O |  G |  R |  A |  F |  I |  A |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | 02 | 17 | 08 | 15 | 19 | 14 | 06 | 17 | 00 | 05 | 08 | 00 |
 
+* Application
 
 |  S |  E |  N |  H |  A |  S |  E |  N |  H |  A |  S |  E |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
