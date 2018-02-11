@@ -198,3 +198,7 @@
 | A/E | 00+04=04 | E |
 
 * Ciphertext: UVVWTGKEHFAE
+
+### Implementando a cifra de Vigenère em Python
+
+* [vigenere.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code/vigenere.py)
