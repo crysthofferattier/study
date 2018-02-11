@@ -142,8 +142,6 @@
 
 - Result: HWNUYTLWFKNF
 
-* Decode
-
 | - |    DECODE   | - |
 | - | ----------- | - |
 | H | (07-5 = 02) | C |
@@ -152,6 +150,6 @@
 | U | (20-5 = 05) | P |
 | Y | (24-5 = 19) | T |
 | T | (19-5 = 14) | O |
-- ...
+| ... | ... | ... |
 
-	-Result: CRIPTO...
+- Result: CRIPTO...
