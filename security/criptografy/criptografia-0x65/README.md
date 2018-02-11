@@ -102,7 +102,7 @@
 	- [ROT13](http://www.rot13.com)
 	- [Vigenere](https://cryptii.com/vigenere-cipher)
 
-## Conhecendo as cifras clássicas
+## 02. Conhecendo as cifras clássicas
 
 ### Entendendo a cifra de César
 
