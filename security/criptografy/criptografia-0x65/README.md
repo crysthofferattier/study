@@ -153,7 +153,9 @@
 |  A |  B |  C |  D |  E |  F |  G |  H |  I |  J |  K |  L |  M |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 10 | 11 | 12 |
+
 | N  | O  | P  |  Q |  R |  S |  T |  U |  V |  W |  X | Y  |  Z |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 |
 
 ![vigenere-table](http://3.bp.blogspot.com/-I8bpzYFclxE/VkyfkPgFW5I/AAAAAAAAC6U/_t-wQVWLzfc/s1600/vigenere-table1.png)
