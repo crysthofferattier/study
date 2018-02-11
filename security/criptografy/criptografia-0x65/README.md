@@ -160,6 +160,16 @@
 * Plaintext: CRIPTOGRAFIA
 
 | S | ... | 18 |
+| E | ... | 04 |
+| N | ... | 13 |
+| H | ... | 07 |
+| A | ... | 00 |
+
+SENHASENHASE
+<br>
+CRIPTOGRAFIA
+
+| C/S | ... | 18 |
 | - | --- | -  |
 | E | ... | 04 |
 | N | ... | 13 |
