@@ -44,20 +44,20 @@
 	- Análise de frequencia
 	- Algortimos defeituosos
 
-* Criptografia na antiguidade
-	- As necessidades
-		- Conflitos
-		- Alianças
-		- Informações sigilosas
+### Criptografia na antiguidade
+* As necessidades
+	- Conflitos
+	- Alianças
+	- Informações sigilosas
 
-	- Esteganografia
-		- Mensagens ocultas
-		- Esteganografia x Criptografia
+* Esteganografia
+	- Mensagens ocultas
+	- Esteganografia x Criptografia
 
-	- Criptografia
-		- Mensagens visiveis
-		- Mensagens incompreensíveis
-		- Esteganografia x Criptografia
+* Criptografia
+	- Mensagens visiveis
+	- Mensagens incompreensíveis
+	- Esteganografia x Criptografia
 
 ### As primeiras técnicas
 
@@ -66,19 +66,17 @@
 	- Uso de diversos símbolos
 	- Uso de caracteres combinados
 
-### Transposição
+* Transposição
+	- Embaralhamento dos caracteres
+	- Uso dos mesmos símbolos
 
-* Embaralhamento dos caracteres
-* Uso dos mesmos símbolos
-
-### Cifras monoalfabéticas
-
-* Cifra de César
-	- Cifra de substituição
-	- Deslocamento do alfabeto
-	- Uso de chave para definir o deslocamento
-	- ROT13
-	- Análise de frequência x Cifra de César
+* Cifras monoalfabéticas
+	- Cifra de César
+		- Cifra de substituição
+		- Deslocamento do alfabeto
+		- Uso de chave para definir o deslocamento
+		- ROT13
+		- Análise de frequência x Cifra de César
 
 ![caesar-cipher](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Caesar3.svg/856px-Caesar3.svg.png)
 
@@ -89,25 +87,24 @@
 
 ![scytale](https://upload.wikimedia.org/wikipedia/commons/5/51/Skytale.png)
 
-### Cifras polialfabéticas
-
-* Cifra de Vigenere
-	- Uso de mais de um afalbeto no algoritmo
-	- Uso de uma palavra secreta
-	- rias cifras de César em uma mensagem
-	- Tamanho da palavra secreta
-	- Análise de frequência x Cfras polialfabeticas
+* Cifras polialfabéticas
+	- Cifra de Vigenere
+		- Uso de mais de um afalbeto no algoritmo
+		- Uso de uma palavra secreta
+		- rias cifras de César em uma mensagem
+		- Tamanho da palavra secreta
+		- Análise de frequência x Cfras polialfabeticas
 
 ![vigenere-square-shading](https://upload.wikimedia.org/wikipedia/commons/9/9a/Vigen%C3%A8re_square_shading.svg)
 
-### Top Websites
-* [Cifra de César](https://cryptii.com/caesar-cipher)
-* [ROT13](http://www.rot13.com)
-* [Vigenere](https://cryptii.com/vigenere-cipher)
+* Top Websites
+	- [Cifra de César](https://cryptii.com/caesar-cipher)
+	- [ROT13](http://www.rot13.com)
+	- [Vigenere](https://cryptii.com/vigenere-cipher)
 
 ## Conhecendo as cifras clássicas
 
-* Entendendo a cifra de César
+### Entendendo a cifra de César
 
 |  A |  B |  C |  D |  E |  F |  G |  H |  I |  J |  K |  L |  M | N  | O  | P  |  Q |  R |  S |  T |  U |  V |  W |  X | Y  |  Z |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
@@ -145,6 +142,5 @@
 
 - Result: CRIPTO...
 
-* Implementando a cifra de César usando Python
-
-	- [caesar-cipher.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code/caesar-cipher.py)
+### Implementando a cifra de César usando Python
+* [caesar-cipher.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code/caesar-cipher.py)
