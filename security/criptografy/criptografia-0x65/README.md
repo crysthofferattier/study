@@ -23,7 +23,7 @@
 
 ### 02. Criptografy
 
-#### Criptologia
+### Criptologia
 
 * Estudo de toda forma de escrita codificada
 * Cifras
@@ -112,3 +112,40 @@
 * [Cifra de César](https://cryptii.com/caesar-cipher)
 * [ROT13](http://www.rot13.com)
 * [Vigenere](https://cryptii.com/vigenere-cipher)
+
+## Conhecendo as cifras clássicas
+
+### 01. Entendendo a cifra de César
+
+A B C D E F G H I J K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+
+KEY = 5
+
+PLAINTEXT = CRIPTOGRAFIA
+
+* Encode
+C - (02+5 = 07) - H
+R - (17+5 = 22) - W
+I - (08+5 = 13) - N
+P - (15+5 = 20) - U
+T - (19+5 = 24) - Y
+O - (14+5 = 19) - T
+G - (06+5 = 11) - L
+R - (17+5 = 22) - W
+A - (00+5 = 05) - F
+F - (05+5 = 10) - K
+I - (08+5 = 13) - N
+A - (00+5 = 05) - F
+
+CIPHERTEXT = HWNUYTLWFKNF
+
+* Decode
+
+H - (07-5 = 02) - C
+W - (22-5 = 17) - R
+N - (13-5 = 08) - I
+U - (20-5 = 05) - P
+Y - (24-5 = 19) - T
+T - (19-5 = 14) - O
+		...
