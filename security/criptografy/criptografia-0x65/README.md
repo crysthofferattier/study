@@ -85,11 +85,8 @@
 	- Cifra de substituição
 	- Deslocamento do alfabeto
 	- Uso de chave para definir o deslocamento
-	- ROT13 [rot13.com](http://www.rot13.com/)
+	- ROT13
 	- Análise de frequência x Cifra de César
-
-	- [cryptii.com/caesar-cipher](https://cryptii.com/caesar-cipher)
-	- [rot13.com](http://www.rot13.
 
 ![caesar-chiper](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Caesar3.svg/856px-Caesar3.svg.png)
 
@@ -110,3 +107,8 @@
 	- Análise de frequência x Cfras polialfabeticas
 
 ![vigenere-square-shading](https://upload.wikimedia.org/wikipedia/commons/9/9a/Vigen%C3%A8re_square_shading.svg)
+
+### Top Websites
+* [Cifra de César](https://cryptii.com/caesar-cipher)
+* [ROT13](http://www.rot13.com)
+* [Vigenere](https://cryptii.com/vigenere-cipher)
