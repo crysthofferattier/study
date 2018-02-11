@@ -21,9 +21,9 @@
 * Extras
 	- Authenticity and non-repudiation: guarantee that the information came from a reliable source; and guarantee that neither the sender nor the recipient denies sending/receiving a message.
 
-## 02. Criptografy
+### 02. Criptografy
 
-### Criptologia
+#### Criptologia
 
 * Estudo de toda forma de escrita codificada
 * Cifras
