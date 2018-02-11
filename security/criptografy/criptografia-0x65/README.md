@@ -147,3 +147,15 @@
 
 ### Quebrando a cifra de César (brute force)
 * [caesar-cipher-brute-force.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code/caesar-cipher-brute-force.py)
+
+### Entendendo a cifra de Vigenère
+
+|  A |  B |  C |  D |  E |  F |  G |  H |  I |  J |  K |  L |  M | N  | O  | P  |  Q |  R |  S |  T |  U |  V |  W |  X | Y  |  Z |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 |
+
+![vigenere-table](http://3.bp.blogspot.com/-I8bpzYFclxE/VkyfkPgFW5I/AAAAAAAAC6U/_t-wQVWLzfc/s1600/vigenere-table1.png)
+
+
+* Key: senha
+* Plaintext: CRIPTOGRAFIA
