@@ -14,6 +14,7 @@ def vernam(msg):
 
 	return xored
 
+
 def encode(xored):
 	print(binascii.hexlify(xored))
 

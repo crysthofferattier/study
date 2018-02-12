@@ -143,10 +143,10 @@
 - Result: CRIPTO...
 
 ### Implementando a cifra de César usando Python
-* [caesar-cipher.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code/caesar-cipher.py)
+* [caesar-cipher.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code-of-conduct/caesar-cipher.py)
 
 ### Quebrando a cifra de César (brute force)
-* [caesar-cipher-brute-force.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code/caesar-cipher-brute-force.py)
+* [caesar-cipher-brute-force.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code-of-conduct/caesar-cipher-brute-force.py)
 
 ### Entendendo a cifra de Vigenère
 
@@ -201,11 +201,11 @@
 
 ### Implementando a cifra de Vigenère em Python
 
-* [vigenere.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code/vigenere.py)
+* [vigenere.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code-of-conduct/vigenere.py)
 
 ### Implementando uma análise de frequência
 
-* [frequency-analysis.py](www.google.com)
+* [frequency-analysis.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code-of-conduct/frequency-analysis.py)
 
 ### Esquemas incondicionalmente e computacionalmente seguros
 
@@ -266,3 +266,5 @@
 | RESULT | 1 | 1 | 0 | 0 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 0 | 0 | 0 | 0 |
 
 ### XOR - Implementando a crifra de Vernam
+
+* [vernam-cipher.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code-of-conduct/vernam-cipher.py)
