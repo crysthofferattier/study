@@ -240,3 +240,25 @@
 	- Criação de grandes quantidades de chaves aleatórias é um problema prático
 	- Inviável em sistemas muito utilizados
 	- Distribuição e proteção das chaves é um grande problema, pois para cada mensagem uma nova chave é utilizada
+
+* Esquemas computacionalmente seguros
+	- Custo para quebrar a cifra ultrapassa o valor da informação
+	- O tempo exigido para a quebra ultrapassa o tempo de vida útil da informação
+
+### Entendendo o XOR
+
+* XOR
+	
+| XOR|
+| ---- | - |
+|1 + 1 | 0 |
+|0 + 0 | 0 |
+|1 + 0 | 1 |
+|0 + 1 | 1 |
+
+* Example:
+|1|0|0|1|0|1|0|1|1|1|0|0|1|0|1|
+|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+|0|1|0|1|1|0|1|0|1|0|1|0|1|0|1|
+
+|1|1|0|0|1|1|1|1|0|1|1|0|0|0|0|
