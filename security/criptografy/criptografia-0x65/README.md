@@ -206,3 +206,22 @@
 ### Implementando uma análise de frequência
 
 * [frequency-analysis.py](www.google.com)
+
+### Esquemas incondicionalmente e computacionalmente seguros
+
+* XOR/OU Exclusivo
+	- 0 + 0 = 0
+	- 1 + 1 = 0
+	- 1 + 0 = 1
+	- 0 + 1 = 1
+
+* Crifra de VERNAM
+	- Chave secreta do msmo tamanho do texto claro.
+	- ci = pi XOR ki
+	
+	- |M|E|U|T|E|X|T|O|U|L|T|R|A|S|E|C|E|T|O| < Plaintext
+	- |C|H|A|V|E|S|E|C|R|E|T|A|C|H|A|V|E|S|E| < Secret Key
+
+* Esquema incondicionalmente seguro
+	- Informação insuficiente no texto cifrado
+	- O tempo disponível não importa
