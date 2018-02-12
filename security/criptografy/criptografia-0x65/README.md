@@ -268,3 +268,25 @@
 ### XOR - Implementando a crifra de Vernam
 
 * [vernam-cipher.py](https://github.com/crysthofferattier/study/blob/master/security/criptografy/criptografia-0x65/code-of-conduct/vernam-cipher.py)
+
+##  03. Cifras modernas
+
+### Criptografia simétrica
+
+![public-key](http://nakamotoinstitute.org/static/img/mempool/crypto-anarchy-and-libertarian-entrepreneurship-2/public-key.jpg)
+
+* Como funciona
+	- Chave unica para cifrar e decifrar
+	- Cifras de bloco
+	- Cifras de fluxo
+
+* Pontos fortes
+	- Desempenho
+	- Simplicidade
+
+* Pontos fracos
+	- Problema do compartilhamento de chave
+	- Gerenciamento de grande quantidade de chaves
+	- Inicio de comunicaçã segura entre desconhecidos
+
+### Tipos de criptografia simétrica
