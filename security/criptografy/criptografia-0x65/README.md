@@ -216,7 +216,7 @@
 	- 0 + 1 = 1
 
 * Crifra de VERNAM
-	- Chave secreta do msmo tamanho do texto claro.
+	- Chave secreta do mesmo tamanho do texto claro.
 	- ci = pi XOR ki
 	
 	- |M|E|U|T|E|X|T|O|U|L|T|R|A|S|E|C|E|T|O| < Plaintext
@@ -234,3 +234,9 @@
 	- Esquema inquebrável, único que apresenta o *perfect secrecy*
 	- Chave verdadeiramente aleatória
 	- ci = pi XOR ki
+	- Segurança totalmente dependente da aleatoriedade da chave secreta
+	- Se a chave é verdadeiramente aleatória, então o texto cifrado também o será
+	- O que impede qualquer tipo de análise, pois não há padrões ou regularidades
+	- Criação de grandes quantidades de chaves aleatórias é um problema prático
+	- Inviável em sistemas muito utilizados
+	- Distribuição e proteção das chaves é um grande problema, pois para cada mensagem uma nova chave é utilizada
