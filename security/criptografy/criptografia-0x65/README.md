@@ -290,3 +290,22 @@
 	- Inicio de comunicaçã segura entre desconhecidos
 
 ### Tipos de criptografia simétrica
+
+* Cifras de bloco
+	- Mensagem dividida em blocos de n bits
+	- Cada bloco é tratado como um todo
+	- Um bloco de texto cifrado do mesmo tamamnho é produzido para cada bloco de texto
+	- Chaves normalmente de 64 ou 128 bits
+	- Adequam-se a uma gama muito maior de aplicações
+	- Aplicações de criptografia simetrica baseadas em rede
+	- DES, 3DES, AES
+
+* Cifras de fluxo
+	- Opera em um bit por vez, continuamente
+	- Chave inserida em um gerador de bits pseudoaleatorios
+	- Produz um fluxo de numeros de 8 bits, fluxo de chaves
+	- Operação XOR
+	- Semelhante ao *one-time pad*
+	- Aleatório x pseudoaleatório
+	- Não se sabe o tamanho da informação
+	- RC4 (SSL/TSL, WEP. WPA)
