@@ -225,3 +225,12 @@
 * Esquema incondicionalmente seguro
 	- Informação insuficiente no texto cifrado
 	- O tempo disponível não importa
+
+* ONE TIME PAD
+	- Chave secreta aleatória
+	- Chave secreta do mesmo tamanho do texto claro
+	- Uso único da chave secreta
+	- Nova mensagem, nova chave secreta
+	- Esquema inquebrável, único que apresenta o *perfect secrecy*
+	- Chave verdadeiramente aleatória
+	- ci = pi XOR ki
