@@ -548,3 +548,37 @@ $ namp -p80 --script-updatedb
 	- Lua v5.3 documentation [here](https://www.lua.org/manual/5.3/)
 	- Nmap Script Engine Documentatio [here](https://media.blackhat.com/bh-us-10/whitepapers/Vaskovitch/BlackHat-USA-2010-Fyodor-Fifield-NMAP-Scripting-Engine-wp.pdf)
 	- Script  Example [here](https://svn.nmap.org/nmap/scripts/rpcinfo.nse)
+
+## 09. Nmap Performance Firewall and IDS Evasion
+
+### Nmap Timing and Performance
+
+* -T[0-5]: Set timing template (higher is faster)]
+	- -T0: paranoid (slow)
+	- -T1: sneaky (slow)
+	- -T2: polite
+	- -T3: normal/default
+	- -T4: aggressive (reasonably fast (local network))
+	- -T5: insane
+```
+$ nmap -v -T0 192.168.0.106
+$ nmap -v -T1 192.168.0.106
+$ nmap -v -T2 192.168.0.106
+$ nmap -v -T3 192.168.0.106
+$ nmap -v -T4 192.168.0.106
+$ nmap -v -T5 192.168.0.106
+```
+
+-f; --mtu <val>: fragment packets (optionally w/given MTU)
+-D <decoy1,decoy2[,ME],...>: Cloak a scan with decoys
+-S <IP_Address>: Spoof source address
+-e <iface>: Use specified interface
+-g/--source-port <portnum>: Use given port number
+--proxies <url1,[url2],...>: Relay connections through HTTP/SOCKS4 proxies
+--data <hex string>: Append a custom payload to sent packets
+--data-string <string>: Append a custom ASCII string to sent packets
+--data-length <num>: Append random data to sent packets
+--ip-options <options>: Send packets with specified ip options
+--ttl <val>: Set IP time-to-live field
+--spoof-mac <mac address/prefix/vendor name>: Spoof your MAC address
+--badsum: Send packets with a bogus TCP/UDP/SCTP checksum
