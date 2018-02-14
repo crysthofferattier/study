@@ -569,16 +569,55 @@ $ nmap -v -T4 192.168.0.106
 $ nmap -v -T5 192.168.0.106
 ```
 
--f; --mtu <val>: fragment packets (optionally w/given MTU)
--D <decoy1,decoy2[,ME],...>: Cloak a scan with decoys
--S <IP_Address>: Spoof source address
--e <iface>: Use specified interface
--g/--source-port <portnum>: Use given port number
---proxies <url1,[url2],...>: Relay connections through HTTP/SOCKS4 proxies
---data <hex string>: Append a custom payload to sent packets
---data-string <string>: Append a custom ASCII string to sent packets
---data-length <num>: Append random data to sent packets
---ip-options <options>: Send packets with specified ip options
---ttl <val>: Set IP time-to-live field
---spoof-mac <mac address/prefix/vendor name>: Spoof your MAC address
---badsum: Send packets with a bogus TCP/UDP/SCTP checksum
+### Nmap Firewall IDS Evasion and Spoofing (Part 1)
+
+* -f, --mtu [val]: fragment packets (optionally w/given MTU)
+```
+$ nmap -f 192.168.0.106
+$ nmap -mtu 16 192.168.0.106
+```
+
+* -D [decoy1,decoy2[,ME],...]: Cloak a scan with decoys
+```
+$ nmap -n -D 192.168.101,192.168.102,192.168.103,192.168.104 192.168.1.1
+```
+
+* -S [IP_Address]: Spoof source address
+	Here we are scanning facebook as if we-re coming from Microsoft.
+```
+$ nmap -S www.microsoft.com www.facebook.com
+```
+
+* -e [iface]: Use specified interface
+```
+$ nmap -n -D 192.168.101,192.168.102,192.168.103,192.168.104 192.168.1.1
+```
+
+* -g/--source-port [portnum]: Use given port number
+```
+$ nmap -n -D 192.168.101,192.168.102,192.168.103,192.168.104 192.168.1.1
+```
+
+### Nmap Firewall IDS Evasion and Spoofing (Part 2)
+* --proxies [url1,[url2],...]: Relay connections through HTTP/SOCKS4 proxies
+```
+$ nmap --proxies http://192.168.0.100:8080, http://192.168.0.101:8080 192.168.0.100
+```
+
+* --data-length [num]: Append random data to sent packets
+```
+$ nmap --data-length 200 192.168.0.100
+```
+
+* --data [hex string]: Append a custom payload to sent packets
+```
+$ namp --data 0xAABBCC 192.168.0.106
+```
+
+* --data-string [string]: Append a custom ASCII string to sent packets
+```
+$ namp --data-string "Will scanned your system!" 192.168.0.100
+```
+
+```
+$ nmap -f -T0 -n -Pn --data-length 200 -D 192.168.0.106
