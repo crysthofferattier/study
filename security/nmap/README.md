@@ -590,12 +590,12 @@ $ nmap -S www.microsoft.com www.facebook.com
 
 * -e [iface]: Use specified interface
 ```
-$ nmap -n -D 192.168.101,192.168.102,192.168.103,192.168.104 192.168.1.1
+$ nmap -S www.microsoft.com www.facebook.com -e eth0 -Pn
 ```
 
 * -g/--source-port [portnum]: Use given port number
 ```
-$ nmap -n -D 192.168.101,192.168.102,192.168.103,192.168.104 192.168.1.1
+$ nmap -n -T4 -g 53 192.168.0.106
 ```
 
 ### Nmap Firewall IDS Evasion and Spoofing (Part 2)
@@ -621,3 +621,6 @@ $ namp --data-string "Will scanned your system!" 192.168.0.100
 
 ```
 $ nmap -f -T0 -n -Pn --data-length 200 -D 192.168.0.106
+```
+
+### Nmap Output and Extras
