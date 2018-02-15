@@ -181,3 +181,17 @@ comment3
 >>> print(c)
 0.4
 ```
+
+### Operator Precedence
+
+* () 	: parentheses
+* ** 	: exponent
+* *  	: multiplication
+* /  	: division
+* %  	: modulo
+* +		: addition
+* -		: subtraction
+
+```python
+
+```
