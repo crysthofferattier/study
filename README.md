@@ -2,9 +2,9 @@
 
 | H | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-|  06:30 - 07:00 | . | . | . | . | . | . | . |
-|  11:30 - 12:30 | . | . | . | . | . | . | . |
-|  18:00 - 22:00 | . | . | . | . | . | . | . |
+|  06:30 - 07:00 | English | . | English | . | English | . | . |
+|  11:30 - 12:30 | Programming | Programming | Programming | Programming | Programming | . | . |
+|  18:00 - 22:00 | Pentes P. | . | Pentes P. | . | Pentes P. | . | . |
 
 
 
