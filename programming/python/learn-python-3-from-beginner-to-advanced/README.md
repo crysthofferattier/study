@@ -184,13 +184,14 @@ comment3
 
 ### Operator Precedence
 
-* () : parentheses
-* ** : exponent
-* ***** : multiplication
-* / : division
-* % : modulo
-* +	: addition
-* -	: subtraction
+* Order:
+		- () : parentheses
+		- ** : exponent
+		- * : multiplication
+		- / : division
+		- % : modulo
+		- +	: addition
+		- -	: subtraction'
 
 ```python
 >>> print(25*15+33/2.0)
