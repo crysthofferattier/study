@@ -186,7 +186,7 @@ comment3
 
 * () : parentheses
 * ** : exponent
-* * : multiplication
+* ***** : multiplication
 * / : division
 * % : modulo
 * +	: addition
