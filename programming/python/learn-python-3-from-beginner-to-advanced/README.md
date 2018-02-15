@@ -193,5 +193,10 @@ comment3
 * -		: subtraction
 
 ```python
-
+>>> print(25*15+33/2.0)
+391.5
+>>> a = 25*15
+>>> b = 33/2.0
+>>> print(a+b)
+391.5
 ```
