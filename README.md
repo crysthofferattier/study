@@ -6,7 +6,7 @@
 * [Pentest Profissional](https://desecsecurity.com/academy/login) - DESEC
 * [Metasploit Unleashed](https://www.offensive-security.com/metasploit-unleashed/) - Free Offensive Security Metasploit course.
 * [Introdução ao Hacking e Pentest](https://www.youtube.com/watch?v=Gf_BYCCkPiM&list=PLp95aw034Wn8M910YSGLh3zvmq1xI7LbD) - Solyd
-* CEH v9
+* CEH
 * Reverse Engineering
 
 ### Programming
