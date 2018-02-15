@@ -1,3 +1,20 @@
 # Contents of a study plan
-	Estudar as mais variadas areas dacomputação.
-	
+
+* Information security
+	- Pentest
+	- CEH
+	- Reverse Engineering
+
+* Programming
+	- Python
+	- Data Science
+	- Machine Learning
+	- Angular
+
+* Infrastructure Engineer
+	- Linux
+	- Docker
+
+* Language
+	- English
+	- Japanese
