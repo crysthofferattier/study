@@ -235,31 +235,31 @@ comment3
 
 * Bitwise operator:
 	* Left shift: the first number on the left is our number to be shifted and the number on the right after the operator is the amount of places to shift.
-```python
->>> print(1 << 3)
->>> 8
-```
+	```python
+	>>> print(1 << 3)
+	>>> 8
+	```
 
 	* Right shift: the first number on the left is our number to amount and the number on the right after the operator is the number to be shifted.
-```python
->>> print(32 >> 5)
->>> 1
-```
+	```python
+	>>> print(32 >> 5)
+	>>> 1
+	```
 
 	* & (and): 
-```python
->>> print(256 & 255)
->>> 0
-```
+	```python
+	>>> print(256 & 255)
+	>>> 0
+	```
 
 	* | (or): unless one side is true, then the rest is true
-```python
->>> print(256 | 255)
->>> 511
-```
-	
+	```python
+	>>> print(256 | 255)
+	>>> 511
+	```
+
 	* ^ (xor):
-```python
->>> print(60 ^ 13)
->>> 49
-```
+	```python
+	>>> print(60 ^ 13)
+	>>> 49
+	```
