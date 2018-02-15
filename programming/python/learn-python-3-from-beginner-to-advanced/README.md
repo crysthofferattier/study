@@ -102,6 +102,7 @@ def test_2():
 ### How to Clear Screen
 
 ```python
+# Windows
 >>> import os
 >>> clear = lambda: os.system('cls')
 >>> clear
@@ -115,5 +116,68 @@ print('We are now working with comments') # this is a comment
 # comment
 # comment
 
-print('# We are now working with comments')
+print('# We are now working with comments') # dont work
+```
+
+### Multi-line Comments
+```python
+'''
+inside is a bunch od comments
+comment1
+comment2
+comment3
+	...
+'''
+```
+
+## Expressions in Python
+
+### Expressions in Python
+
+```python
+>>> print(2+5)
+7
+>>> print(2.2+5)
+7.2
+>>> print(2.2-5)
+-2.8
+>>> print(10-5)
+5
+>>> print(10.0-5)
+5.0
+>>> print(40*30)
+1200
+>>> print(40*30*0.5)
+600.0
+>>> # ^ = **
+>>> print(2**5)
+32
+```
+
+### Division Characteristics
+
+```python
+>>> print(2/4)
+0.5
+>>> print(23/5)
+4.6
+>>> print(23.0/5)
+4.6
+>>> print(23//5)
+4
+>>> print(23.0//5)
+4.0
+>>> print(25%4)
+1
+>>> print(25.0%4)
+1.0
+>>> a = 2 + 5
+>>> b = 3.3 * 3
+>>> c = 10.0/25
+>>> print(a)
+7
+>>> print(b)
+9.899999999999999
+>>> print(c)
+0.4
 ```
