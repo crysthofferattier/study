@@ -1,10 +1,10 @@
 # Study plan
 
-| H 				| Monday 		| Tuesday 		| Wednesday 	| Thursday 		| Friday 		| Saturday 	| Sunday 	|
-| ----------------- | ------ 		| ------ 		| ------ 		| ------ 		| ------ 		| ------ 	| ------ 	|
-|  06:30 - 07:00 	| Reading 		| English 		| Reading 		| English 		| Reading 		| ? 		| ? 		|
-|  11:30 - 12:30 	| English 		| Programming 	| English 		| Programming 	| English 		| ? 		| ? 		|
-|  18:00 - 22:00 	| Pentest P. 	| Programming   | Pentest P. 	| Programming   | Pentest P. 	| ? 		| ? 		|
+| H 				| Monday 		| Tuesday 			| Wednesday 	| Thursday 			| Friday 		| Saturday 	| Sunday 	|
+| ----------------- | ------ 		| ------ 			| ------ 		| ------ 			| ------ 		| ------ 	| ------ 	|
+|  06:30 - 07:00 	| Reading 		| English 			| Reading 		| English 			| Reading 		| ? 		| ? 		|
+|  11:30 - 12:30 	| English 		| Programming 		| English 		| Programming 		| English 		| ? 		| ? 		|
+|  18:00 - 22:00 	| Pentest P. 	| Infrastructure   	| Pentest P. 	| Infrastructure   	| Pentest P. 	| ? 		| ? 		|
 
 
 ### Information security
