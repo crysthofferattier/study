@@ -4,6 +4,9 @@
 	- Pentest
 	- CEH
 	- Reverse Engineering
+	- Links
+		- [DESEC](https://desecsecurity.com/academy/login)
+		- [Udemy](https://www.udemy.com/)
 
 * Programming
 	- Python
@@ -18,3 +21,5 @@
 * Language
 	- English
 	- Japanese
+	- Links
+		- [SEDA College](http://www.sedacollegeonline.com/)
