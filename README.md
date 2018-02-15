@@ -9,10 +9,10 @@
 * CEH v9
 * Reverse Engineering
 
-* Programming
-	- Python
-	- [Data science and machine learning with python](https://www.udemy.com/data-science-and-machine-learning-with-python-hands-on/) - Go hands-on with the neural network, artificial intelligence, and machine learning techniques employers are seeking!
-	- [Angular](https://www.udemy.com/the-complete-guide-to-angular-2/) - Master Angular (Angular 2+, incl. Angular 5) and build awesome, reactive web apps with the successor of Angular.js 
+### Programming
+* Python
+* [Data science and machine learning with python](https://www.udemy.com/data-science-and-machine-learning-with-python-hands-on/) - Go hands-on with the neural network, artificial intelligence, and machine learning techniques employers are seeking!
+* [Angular](https://www.udemy.com/the-complete-guide-to-angular-2/) - Master Angular (Angular 2+, incl. Angular 5) and build awesome, reactive web apps with the successor of Angular.js 
 
 ### Infrastructure Engineer
 * [Docker Mastery](https://www.udemy.com/docker-mastery/)
