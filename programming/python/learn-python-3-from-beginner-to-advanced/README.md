@@ -263,3 +263,7 @@ comment3
 	>>> print(60 ^ 13)
 	>>> 49
 	```
+
+## Learn about Strings
+
+### Basic String Manipulation
