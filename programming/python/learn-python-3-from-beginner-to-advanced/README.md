@@ -185,13 +185,13 @@ comment3
 ### Operator Precedence
 
 * Order:
-	- '()' : parentheses
-	- '**' : exponent
-	- '*' : multiplication
-	- '/' : division
-	- '%' : modulo
-	- '+' : addition
-	- '-' : subtraction'
+	-() : parentheses
+	-** : exponent
+	-* : multiplication
+	-/ : division
+	-% : modulo
+	-+ : addition
+	-- : subtraction
 
 ```python
 >>> print(25*15+33/2.0)
@@ -200,4 +200,33 @@ comment3
 >>> b = 33/2.0
 >>> print(a+b)
 391.5
+```
+
+### Complex Arithmetic
+
+```python
+>>> (25 * 15 + 33)/2.0
+204.0
+>>> a = 25 * 15 + 33
+>>> b = 2.0
+>>> c = a / b
+>>> print(a)
+408
+>>> print(b)
+2.0
+>>> print(c)
+204.0
+
+>>> (5.0 * (8 + (16-2.0)/(4+1))/2) % 4
+3.0
+>>> a = 16 - 2.0
+>>> b = 4 + 1
+>>> c = a / b
+>>> d = 8
+>>> e = d + c
+>>> f = e / 2
+>>> g = 5.0 * f
+>>> h = g % 4
+>>> print(h)
+3.0
 ```
