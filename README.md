@@ -17,6 +17,10 @@
 * Infrastructure Engineer
 	- Linux
 	- Docker
+	- Links
+		- [Docker Mastery](https://www.udemy.com/docker-mastery/)
+		- [Docker: Ferramenta essencial para Desenvolvedores](https://www.udemy.com/curso-docker/)
+		- [Linux Administration Bootcamp](https://www.udemy.com/linux-administration-bootcamp/)
 
 * Language
 	- English
