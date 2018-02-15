@@ -1,7 +1,14 @@
 # Study plan
 
-### Information security
+| Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday |
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+|  06:30 - 07:00 |  06:30 - 07:00 |  06:30 - 07:00 |  06:30 - 07:00 |  06:30 - 07:00 |  06:30 - 07:00 |  06:30 - 07:00 |
+|  11:30 - 12:30 |  11:30 - 12:30 |  11:30 - 12:30 |  11:30 - 12:30 |  11:30 - 12:30 |  11:30 - 12:30 |  11:30 - 12:30 |
+|  18:00 - 22:00 |  18:00 - 22:00 |  18:00 - 22:00 |  18:00 - 22:00 |  18:00 - 22:00 |  18:00 - 22:00 |  18:00 - 22:00 |
 
+
+
+### Information security
 
 * [Pentest Profissional](https://desecsecurity.com/academy/login) - DESEC
 * [Metasploit Unleashed](https://www.offensive-security.com/metasploit-unleashed/) - Free Offensive Security Metasploit course.
