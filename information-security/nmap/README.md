@@ -623,4 +623,38 @@ $ namp --data-string "Will scanned your system!" 192.168.0.100
 $ nmap -f -T0 -n -Pn --data-length 200 -D 192.168.0.106
 ```
 
-### Nmap Output and Extras
+## 10. Nmap Output and Extras
+Output scan in normal, XML, s|<rIpt kIddi3, and Grepable format, respectively, to the given filename.
+
+### Nmap Output
+
+* -oN: normal output
+```
+$ nmap 192.168.0.104 -oN normal.file
+```
+
+* -oX: xml file
+```
+$ nmap 192.168.0.104 -oX files/xml.file
+```
+
+* -oG: grep file
+```
+$ nmap 192.168.0.104 -oG files/grep.file
+```
+
+* -oS: scriptkiddie file
+```
+$ nmap 192.168.0.104 -oG files/scriptkiddie.file
+```
+
+* -oA: all types (xml, grep, normal)
+```
+$ nmap 192.168.0.104 -oG files/results
+```
+
+* Extras:
+* - (dash): nmap is not going to create a output file, bu the output is going  to screen in a grep format.
+```
+$ nmap -p80 -sV -oG - --open 192.168.0.1/24 | grep open
+```
