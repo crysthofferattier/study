@@ -656,5 +656,17 @@ $ nmap 192.168.0.104 -oG files/results
 * Extras:
 * - (dash): nmap is not going to create a output file, bu the output is going  to screen in a grep format.
 ```
+$ nmap -p80 -sV -oG - --open 192.168.0.1/24
 $ nmap -p80 -sV -oG - --open 192.168.0.1/24 | grep open
+```
+
+* List of live hosts:
+```
+$ nmap 192.168.0.1-100 -n -oX out.xml | grep "Nmap" | cut -d " " -f5 > files/live-hosts.txt
+```
+
+* --append-output:
+```
+$ nmap 192.168.0.1 -T4 -oN file.file --append-output
+$ nmap 192.168.0.2 -T4 -oN file.file --append-output
 ```
