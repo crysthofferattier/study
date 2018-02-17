@@ -653,7 +653,6 @@ $ nmap 192.168.0.104 -oG files/scriptkiddie.file
 $ nmap 192.168.0.104 -oG files/results
 ```
 
-* Extras:
 * - (dash): nmap is not going to create a output file, bu the output is going  to screen in a grep format.
 ```
 $ nmap -p80 -sV -oG - --open 192.168.0.1/24
@@ -669,4 +668,71 @@ $ nmap 192.168.0.1-100 -n -oX out.xml | grep "Nmap" | cut -d " " -f5 > files/liv
 ```
 $ nmap 192.168.0.1 -T4 -oN file.file --append-output
 $ nmap 192.168.0.2 -T4 -oN file.file --append-output
+```
+
+### Nmap Output & Miscellaneous Options
+
+* -v: Increase verbosity level (use -vv or more for greater effect)
+```
+$ nmap -v 192.168.0.1
+$ nmap -vv 192.168.0.1
+$ nmap -vvv 192.168.0.1
+```
+
+* -d: Increase debugging level (use -dd or more for greater effect)
+```
+$ nmap -d 192.168.0.1
+$ nmap -dd 192.168.0.1
+```
+
+* -h: help
+```
+$ nmap -h
+```
+
+* --reason: Display the reason a port is in a particular state
+```
+$ nmap --reason 192.168.0.1
+$ nmap --reason 192.168.0.1 --open
+$ nmap --reason 192.168.0.1 --open --packet-trace
+```
+
+* --packet-trace: Show all packets sent and received
+```
+$ nmap --reason 192.168.0.1 --open --packet-trace
+```
+
+* --source-port: equal -g
+```
+$ nmap 192.168.0.1 -T4 --packet-trace --source-port 53
+```
+
+* --iflist: Print host interfaces and routes (for debugging)
+```
+$ nmap --iflist
+```
+
+* --resume [file-name]: Resume aborted scan
+```
+$ nmap --resume hosts.txt
+```
+
+* -6 [IPv6-address]: IPv6
+```
+$ nmap -6 2607:f0d0:1002:51::4
+```
+
+* -A (all): Enable OS detection, version detection, script scanning, and traceroute
+```
+$ nmap 192.168.0.104 -A -T4
+```
+
+* - :
+```
+$ 
+```
+
+* - :
+```
+$ 
 ```
