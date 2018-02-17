@@ -1,5 +1,4 @@
-# NMAP
-* [The Complete Nmap Ethical Hacking Course: Network Security](https://www.udemy.com/the-complete-nmap-ethical-hacking-course-network-security/)
+#The Complete Nmap Ethical Hacking Course: Network Security
 
 ## 04. Nmap Basics Target Specification & Port States
 
