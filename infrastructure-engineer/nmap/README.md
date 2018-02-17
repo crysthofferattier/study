@@ -725,14 +725,5 @@ $ nmap -6 2607:f0d0:1002:51::4
 * -A (all): Enable OS detection, version detection, script scanning, and traceroute
 ```
 $ nmap 192.168.0.104 -A -T4
-```
-
-* - :
-```
-$ 
-```
-
-* - :
-```
-$ 
+$ nmap -O -sV -sC -traceroute -T4 192.168.0.104
 ```
