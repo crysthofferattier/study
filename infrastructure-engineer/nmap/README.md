@@ -727,3 +727,29 @@ $ nmap -6 2607:f0d0:1002:51::4
 $ nmap 192.168.0.104 -A -T4
 $ nmap -O -sV -sC -traceroute -T4 192.168.0.104
 ```
+
+## Extras
+
+* ndiff: Compare scan with
+```
+$ ndiff out-put-scan1.xml out-put-scan2.xml
+```
+
+* xlstproc: Convert xml to html
+```
+$ xsltproc out-put.xml -o out-put.html
+```
+
+* xlstproc: Convert xml to html
+```
+$ xsltproc out-put.xml -o out-put.html
+```
+
+* filters
+```
+$ grep " open " results.nmap | sed -r 's/ +/ /g' | sort | uniq -c | sort -rn | less
+```
+
+* Online web scaner:
+	* [Pentest-Tools.com](https://pentest-tools.com/network-vulnerability-scanning/tcp-port-scanner-online-nmap)
+	* [Nmap online scanner](http://nmap.online-domain-tools.com/)
