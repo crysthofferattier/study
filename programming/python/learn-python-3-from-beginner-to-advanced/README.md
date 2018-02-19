@@ -185,13 +185,14 @@ comment3
 ### Operator Precedence
 
 * Order:
-	- '()' : parentheses
-	- '**' : exponent
-	- '*' : multiplication
-	- '/' : division
-	- '%' : modulo
-	- '+' : addition
-	- '-' : subtraction
+	* Parentheses: ()
+	* Exponent: **
+	* Multiplication: *
+	* Division: /
+	* Modulo: %
+	* Addition: +
+	* Subtraction: -
+
 
 ```python
 >>> print(25*15+33/2.0)
@@ -201,3 +202,69 @@ comment3
 >>> print(a+b)
 391.5
 ```
+
+### Complex Arithmetic
+
+```python
+>>> (25 * 15 + 33)/2.0
+204.0
+>>> a = 25 * 15 + 33
+>>> b = 2.0
+>>> c = a / b
+>>> print(a)
+408
+>>> print(b)
+2.0
+>>> print(c)
+204.0
+
+>>> (5.0 * (8 + (16-2.0)/(4+1))/2) % 4
+3.0
+>>> a = 16 - 2.0
+>>> b = 4 + 1
+>>> c = a / b
+>>> d = 8
+>>> e = d + c
+>>> f = e / 2
+>>> g = 5.0 * f
+>>> h = g % 4
+>>> print(h)
+3.0
+```
+
+### Binary Number Manipulation
+
+* Bitwise operator:
+	* Left shift: the first number on the left is our number to be shifted and the number on the right after the operator is the amount of places to shift.
+	```python
+	>>> print(1 << 3)
+	>>> 8
+	```
+
+	* Right shift: the first number on the left is our number to amount and the number on the right after the operator is the number to be shifted.
+	```python
+	>>> print(32 >> 5)
+	>>> 1
+	```
+
+	* & (and): 
+	```python
+	>>> print(256 & 255)
+	>>> 0
+	```
+
+	* | (or): unless one side is true, then the rest is true
+	```python
+	>>> print(256 | 255)
+	>>> 511
+	```
+
+	* ^ (xor):
+	```python
+	>>> print(60 ^ 13)
+	>>> 49
+	```
+
+## Learn about Strings
+
+### Basic String Manipulation

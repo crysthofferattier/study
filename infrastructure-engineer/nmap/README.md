@@ -1,5 +1,4 @@
-# NMAP
-* [The Complete Nmap Ethical Hacking Course: Network Security](https://www.udemy.com/the-complete-nmap-ethical-hacking-course-network-security/)
+# The Complete Nmap Ethical Hacking Course: Network Security
 
 ## 04. Nmap Basics Target Specification & Port States
 
@@ -623,4 +622,133 @@ $ namp --data-string "Will scanned your system!" 192.168.0.100
 $ nmap -f -T0 -n -Pn --data-length 200 -D 192.168.0.106
 ```
 
-### Nmap Output and Extras
+## 10. Nmap Output and Extras
+Output scan in normal, XML, s|<rIpt kIddi3, and Grepable format, respectively, to the given filename.
+
+### Nmap Output
+
+* -oN: normal output
+```
+$ nmap 192.168.0.104 -oN normal.file
+```
+
+* -oX: xml file
+```
+$ nmap 192.168.0.104 -oX files/xml.file
+```
+
+* -oG: grep file
+```
+$ nmap 192.168.0.104 -oG files/grep.file
+```
+
+* -oS: scriptkiddie file
+```
+$ nmap 192.168.0.104 -oG files/scriptkiddie.file
+```
+
+* -oA: all types (xml, grep, normal)
+```
+$ nmap 192.168.0.104 -oG files/results
+```
+
+* - (dash): nmap is not going to create a output file, bu the output is going  to screen in a grep format.
+```
+$ nmap -p80 -sV -oG - --open 192.168.0.1/24
+$ nmap -p80 -sV -oG - --open 192.168.0.1/24 | grep open
+```
+
+* List of live hosts:
+```
+$ nmap 192.168.0.1-100 -n -oX out.xml | grep "Nmap" | cut -d " " -f5 > files/live-hosts.txt
+```
+
+* --append-output:
+```
+$ nmap 192.168.0.1 -T4 -oN file.file --append-output
+$ nmap 192.168.0.2 -T4 -oN file.file --append-output
+```
+
+### Nmap Output & Miscellaneous Options
+
+* -v: Increase verbosity level (use -vv or more for greater effect)
+```
+$ nmap -v 192.168.0.1
+$ nmap -vv 192.168.0.1
+$ nmap -vvv 192.168.0.1
+```
+
+* -d: Increase debugging level (use -dd or more for greater effect)
+```
+$ nmap -d 192.168.0.1
+$ nmap -dd 192.168.0.1
+```
+
+* -h: help
+```
+$ nmap -h
+```
+
+* --reason: Display the reason a port is in a particular state
+```
+$ nmap --reason 192.168.0.1
+$ nmap --reason 192.168.0.1 --open
+$ nmap --reason 192.168.0.1 --open --packet-trace
+```
+
+* --packet-trace: Show all packets sent and received
+```
+$ nmap --reason 192.168.0.1 --open --packet-trace
+```
+
+* --source-port: equal -g
+```
+$ nmap 192.168.0.1 -T4 --packet-trace --source-port 53
+```
+
+* --iflist: Print host interfaces and routes (for debugging)
+```
+$ nmap --iflist
+```
+
+* --resume [file-name]: Resume aborted scan
+```
+$ nmap --resume hosts.txt
+```
+
+* -6 [IPv6-address]: IPv6
+```
+$ nmap -6 2607:f0d0:1002:51::4
+```
+
+* -A (all): Enable OS detection, version detection, script scanning, and traceroute
+```
+$ nmap 192.168.0.104 -A -T4
+$ nmap -O -sV -sC -traceroute -T4 192.168.0.104
+```
+
+## Extras
+
+* ndiff: Compare scan with
+```
+$ ndiff out-put-scan1.xml out-put-scan2.xml
+```
+
+* xlstproc: Convert xml to html
+```
+$ xsltproc out-put.xml -o out-put.html
+```
+
+* xlstproc: Convert xml to html
+```
+$ xsltproc out-put.xml -o out-put.html
+```
+
+* filters
+```
+$ grep " open " results.nmap | sed -r 's/ +/ /g' | sort | uniq -c | sort -rn | less
+```
+
+* Online web scaner:
+	* [Pentest-Tools.com](https://pentest-tools.com/network-vulnerability-scanning/tcp-port-scanner-online-nmap)
+	* [Nmap online scanner](http://nmap.online-domain-tools.com/)
