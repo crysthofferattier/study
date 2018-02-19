@@ -191,7 +191,7 @@ comment3
 	- '/' : division
 	- '%' : modulo
 	- '+' : addition
-	- '-' : subtraction'
+	- '-' : subtraction
 
 ```python
 >>> print(25*15+33/2.0)
