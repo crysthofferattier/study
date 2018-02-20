@@ -1,7 +1,7 @@
 # Linux Fundamentals
 
 ## Table of Contents
-1. [Linux Directory Structure](#linux-directory-structure)
+1. [Linux Directory Structure](#1-linux-directory-structure)
 	1. [Common Directories](#common-directories)
 	2. [Comprehensive Directory Listing](#comprehensive-directory-listing)
 	3. [Application Directory Structures](#application-directory-structures)
@@ -13,7 +13,7 @@
 	5. [Shorcut](#shorcut)
 	6. [Multi-Line Prompts](#multi-line-prompts)
 
-## Linux Directory Structure
+## 1. Linux Directory Structure
 The filesystem hierarchy
 
 ### What you will learn
