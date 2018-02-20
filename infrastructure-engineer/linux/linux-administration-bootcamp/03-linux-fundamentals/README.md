@@ -2,9 +2,9 @@
 
 ## Table of Contents
 1. [Linux Directory Structure](#linux-directory-structure)
-	1. [What you will learn](#what-you-will-learn)
-	2. [Common Directories](#common-directories)
-	3. [Comprehensive Directory Listing](#comprehensive-directory-listing)
+	1. [Common Directories](#common-directories)
+	2. [Comprehensive Directory Listing](#comprehensive-directory-listing)
+	3. [Application Directory Structures](#application-directory-structures)
 2. [The Shell](#the-shell)
 	1. [What the shell is](#what-the-shell-is)
 	2. [Command Line Interface vs a GUI](#command-line-interface-vs-a-gui)
@@ -22,7 +22,7 @@ The filesystem hierarchy
 * Location of operating system components
 * Application directory structures
 
-### Common Directories
+### 1. Common Directories
 
 * **/**: "Root", the top of the file system hiearchy
 * **/bin**: Binaries and other executable programs
@@ -37,7 +37,7 @@ The filesystem hierarchy
 
 ![linux-forlders](http://www.linuxtrainingacademy.com/wp-content/uploads/2014/03/linux-directory-tree.jpg)
 
-### Comprehensive Directory Listing
+### 2. Comprehensive Directory Listing
 
 * **/**: "Root", the top of the file system hiearchy
 * **/bin**: Binaries and other executable programs
@@ -71,7 +71,7 @@ The filesystem hierarchy
 * **/var**: Variable data, most notably log files
 * **/var/log**: Log files
 
-### Application Directory Structures
+### 3. Application Directory Structures
 
 * **/user/local**:
 	* **/usr/local/crashplan/bin**
