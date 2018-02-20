@@ -452,13 +452,13 @@ total 4
 -rw-rw-r-- 1 ubuntu ubuntu 12 Fev 19 16:51 file.txt
 ```
 
-	* Permissions: -rw-rw-r--
-	* Number of links: 1
-	* Owner name: ubuntu
-	* Group name: ubuntu
-	* Number of bytes in the file: 12
-	* Last modification time: Fev 19 16:51
-	* File name: file.txt
+* Permissions: -rw-rw-r--
+* Number of links: 1
+* Owner name: ubuntu
+* Group name: ubuntu
+* Number of bytes in the file: 12
+* Last modification time: Fev 19 16:51
+* File name: file.txt
 
 ### Listing All Files, Including Hidden Files
 * Hidden files begin with a period.
