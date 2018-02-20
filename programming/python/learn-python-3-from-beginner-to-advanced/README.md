@@ -268,3 +268,71 @@ comment3
 ## Learn about Strings
 
 ### Basic String Manipulation
+```python
+Python 2.7.12 (default, Dec  4 2017, 14:50:18)
+[GCC 5.4.0 20160609] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+>>> string = 'I am a string in Python'
+>>> string1 = "I am a string in Python"
+>>> string[0]
+'I'
+>>> len(string)
+23
+>>> len(string1)
+23
+>>> string[-1]
+'n'
+>>>
+>>> string[-2]
+'o'
+>>> string[-1] = 'x'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'str' object does not support item assignment
+>>> string[5:11]
+'a stri'
+>>> string[:5]
+'I am '
+>>> string[15:]
+'n Python'
+>>> string2 = 'Con' + 'catenation'
+>>> string2
+'Concatenation'
+>>> string2 = 2* 'Con' + 'catenation'
+>>> string2
+'ConConcatenation'
+>>> string2 = 2* ('Con' + 'catenation')
+>>> string2
+'ConcatenationConcatenation'
+>>> string2 = 2* ('Con' 'catenation')
+>>> string2
+'ConcatenationConcatenation'
+>>> word = 'Ford'
+>>> word = 'L' + word[1:]
+>>> word
+'Lord'
+```
+
+### Using the format Method
+```python
+>>> print('Today I had {0} cups of {1}'.format(3, 'coffe'))
+Today I had 3 cups of coffe
+>>> print('prices: ({x}, {y}, {z})'.format(x=2.0, y=1.5, z=5))
+prices: (2.0, 1.5, 5)
+>>> print('The {vehicle} had {0} crashes in {1} months'.format(5,6, vehicle='car'))
+The car had 5 crashes in 6 months
+>>>
+>>> # {:character>}.format('string')
+...
+>>> print('{:<20}'.format('text'))
+text
+>>> print('{:>20}'.format('text'))
+                text
+>>> print('{:b}'.format(21))
+10101
+>>> print('{:x}'.format(21))
+15
+>>> print('{:o}'.format(21))
+25
+```
