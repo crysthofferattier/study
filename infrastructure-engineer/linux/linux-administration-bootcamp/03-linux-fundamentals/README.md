@@ -5,6 +5,7 @@
 	1. [What you will learn](#what-you-will-learn)
 	2. [Common Directories](#common-directories)
 	3. [Comprehensive Directory Listing](#comprehensive-directory-listing)
+2. [The Shell](#the-shell)
 
 ## Linux Directory Structure
 The filesystem hierarchy
@@ -107,4 +108,26 @@ The filesystem hierarchy
 	* **/tmp**
 	* **/usr**
 	* **/var**
-	
+
+## The Shell
+
+### What you will learn
+
+* What the shell is
+* How to access the shell
+* What the superuser account is
+
+### 1. What the shell is
+* The default interface to Linux
+* A program that accepts your commands and executes those commands
+* Also called a command line interpreter
+
+### Command Line Interface vs a GUI
+CLI x GUI
+
+* The command line is more powerful
+* The will always be a command line
+* Server distributions do not includ GUIs
+* Desktop distributions have a GUIs and CLIs
+
+### 
