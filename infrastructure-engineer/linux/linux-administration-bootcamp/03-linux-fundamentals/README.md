@@ -33,7 +33,7 @@
 	4. [Creatting and Removing Directories](#creatting-and-removing-directories)
 
 6. [Listing Files and Understanding LS Output](#6-listing-files-and-understanding-ls-output)
-	1. [Decoding **ls -l** Output](#decoding-ls-l-output)
+	1. [Decoding **ls -l** Output](#decoding-ls--l-output)
 	2. [Listing All Files, Including Hidden Files](#listing-all-files-including-hidden-files)
 	3. [Listing Files by Type](#listing-files-by-type)
 	4. [Symbolic Links](#symbolic-links)
