@@ -5,6 +5,7 @@
 	1. [Common Directories](#common-directories)
 	2. [Comprehensive Directory Listing](#comprehensive-directory-listing)
 	3. [Application Directory Structures](#application-directory-structures)
+
 2. [The Shell](#2-the-shell)
 	1. [What the shell is](#what-the-shell-is)
 	2. [Command Line Interface vs a GUI](#command-line-interface-vs-a-gui)
@@ -12,6 +13,18 @@
 	4. [Root, the Superuser](#root-the-superuser)
 	5. [Shorcut](#shorcut)
 	6. [Multi-Line Prompts](#multi-line-prompts)
+
+3. [Basic Linux Commands](#3-basic-linux-commands)
+	1. [Basic Commands](#basic-commands)
+
+4. [Getting Help at the Command Line](#4-getting-help-at-the-command-line)
+	1. [Navigating Man Pages](#navigating-man-pages)
+	2. [Environmental Variables](#environmental-variables)
+	3. [PATH](#path)
+	4. [Which Command Exactly?](#which-command-exactly)
+	5. [Starting to Fish](#starting-to-fish)	
+	6. [Get Help with --help or -h](#get-help-with-help-or-h)
+	7. [Searching Man Pages](#searching-man-pages)
 
 ## 1. Linux Directory Structure
 The filesystem hierarchy
@@ -115,9 +128,9 @@ The filesystem hierarchy
 	* **/usr**
 	* **/var**
 
-## The Shell
+## 2. The Shell
 
-### 2. What you will learn
+### What you will learn
 
 * What the shell is
 * How to access the shell
@@ -197,3 +210,128 @@ zsh 14 %
 * Use the terminal application to get to the CLI
 * Shell prompts can vary greatly in appearance
 * Root is the superuser
+
+## 3. Basic Linux Commands
+Case sensitive
+
+### Basic Commands
+
+* ls: List directories contents
+	* ls
+```
+ubuntu@ubuntu-vm:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+```
+	* ls [arguments]
+		* ls -l
+		* ls -a
+		* ls -la
+
+* cd: Changes the currenty directory
+	* cd [directory-name]
+
+```
+ubuntu@ubuntu-vm:~$ cd Desktop/
+ubuntu@ubuntu-vm:~/Desktop$
+```
+
+* pwd: Display the present working directory
+```
+ubuntu@ubuntu-vm:~/Desktop$ pwd
+/home/ubuntu/Desktop
+```
+
+* cat: Concatenates and display files
+```
+ubuntu@ubuntu-vm:~/Desktop$ cat file.txt
+Hello World
+```
+
+* echo: Display arguments to the screen
+```
+ubuntu@ubuntu-vm:~/Desktop$ echo $PATH
+/home/ubuntu/bin:/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+```
+
+* man: Display the online manual
+```
+ubuntu@ubuntu-vm:~/Desktop$ man ls
+```
+
+* clear: CLear the screen
+```
+ubuntu@ubuntu-vm:~/Desktop$ clear
+```
+
+* exit: Exits the shell or your current session
+```
+ubuntu@ubuntu-vm:~/Desktop$ exit
+```
+
+## 4. Getting Help at the Command Line
+
+### Navigating Man Pages
+
+* Enter: Move down one line
+* Sapce: Move down one page
+* g: Move to the top of the page
+* G: Move to the bottom of the page
+* q: Quit
+
+### Environmental Variables
+* Storage location that has a name and value
+* Typically uppercase
+* Access the contents by executing:
+	* echo $[var-name]
+
+### PATH
+
+* An environment variable
+* Controls the command search path
+* Contains a list of directories
+
+### Which Command Exactly?
+* which: locate a command
+
+```
+ubuntu@ubuntu-vm:~$ which cat
+/bin/cat
+
+ubuntu@ubuntu-vm:~$ which tac
+/usr/bin/tac
+```
+
+### Starting to Fish
+
+* Look at the directories in $PATH
+* Look at the files in each directory
+* Use man to learn what the command does
+
+### Get Help with --help or -h
+
+* Add --help to a command to get help
+* Try -h if --help doesn't work
+
+```
+ubuntu@ubuntu-vm:~$ ls -h
+ubuntu@ubuntu-vm:~$ ls --help
+```
+
+### Searching Man Pages
+
+* man -k [search-term]
+
+```
+ubuntu@ubuntu-vm:~$ man -k calendar
+cal (1)              - displays a calendar and the date of Easter
+calendar (1)         - reminder service
+ncal (1)             - displays a calendar and the date of Easter
+```
+
+### Sumary
+
+* **man** is used to display documentation
+* $PATH controls your search path
+* Learn the full path to commands with which
+* Ask commands for help with --help or -h
+* Search man pages by using man -k
