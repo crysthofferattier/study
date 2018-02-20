@@ -6,6 +6,12 @@
 	2. [Common Directories](#common-directories)
 	3. [Comprehensive Directory Listing](#comprehensive-directory-listing)
 2. [The Shell](#the-shell)
+	1. [What the shell is](#what-the-shell-is)
+	2. [Command Line Interface vs a GUI](#command-line-interface-vs-a-gui)
+	3. [The Prompt](#the-prompt)
+	4. [Root, the Superuser](#root-the-superuser)
+	5. [Shorcut](#shorcut)
+	6. [Multi-Line Prompts](#multi-line-prompts)
 
 ## Linux Directory Structure
 The filesystem hierarchy
@@ -122,7 +128,7 @@ The filesystem hierarchy
 * A program that accepts your commands and executes those commands
 * Also called a command line interpreter
 
-### Command Line Interface vs a GUI
+### 2. Command Line Interface vs a GUI
 CLI x GUI
 
 * The command line is more powerful
@@ -130,4 +136,64 @@ CLI x GUI
 * Server distributions do not includ GUIs
 * Desktop distributions have a GUIs and CLIs
 
-### 
+### 3. The Prompt
+
+* Shell prompt
+```
+[user]@[linux-system]:[indicate-user]
+ubuntu@ubuntu-vm:~$ [command]
+```
+
+* Superuser:
+```
+[user]@[linux-system]:[indicate-user]
+root@ubuntu-vm:~# [command]
+```
+
+*
+```
+ubuntu@ubuntu-vm:~$
+root@ubuntu-vm:~#
+root:/home/ubuntu
+ubuntu@ubuntu-vm:~>
+16:45:51 ubuntu-vm ~$
+$
+%
+>
+```
+
+### 4. Root, the Superuser
+
+* Root is all powerfull
+* Normal accounts can only do a subset of the things root can do
+* Root access is typically restricted to system adminitrators
+* Root access may be required to install, atart, or stop an application
+* Day to day activities will be performed using a normal account
+* 
+
+### 5. Shorcut
+
+* Tilda Expansion: shorcut for home directory
+	* ~jason: /home/jason
+	* ~pat: /home/pat
+	* ~root: /root
+	* ~ftp: /srv/ftp
+
+### 6. Multi-Line Prompts
+```
+linuxsvr:[/home/jason]
+$
+```
+
+```
+[Mon 14/02/18 12:22 EST][pts/0]
+<json@linuxsvr:~>
+zsh 14 %
+```
+
+### Summary
+
+* The shell is the default user interface
+* Use the terminal application to get to the CLI
+* Shell prompts can vary greatly in appearance
+* Root is the superuser
