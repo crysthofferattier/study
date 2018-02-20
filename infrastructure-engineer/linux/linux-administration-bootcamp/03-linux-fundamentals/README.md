@@ -26,6 +26,12 @@
 	6. [Get Help with --help or -h](#get-help-with-help-or-h)
 	7. [Searching Man Pages](#searching-man-pages)
 
+5. [Working with Directories](#working-with-directories)
+	1. [Directory shorcuts](#directory-shorcuts)
+	2. [Directory Separator](#directory-separator)
+	3. [Executing Commands](#executing-commands)
+	4. [Creatting and Removing Directories](#creatting-and-removing-directories)
+
 ## 1. Linux Directory Structure
 The filesystem hierarchy
 
@@ -335,3 +341,93 @@ ncal (1)             - displays a calendar and the date of Easter
 * Learn the full path to commands with which
 * Ask commands for help with --help or -h
 * Search man pages by using man -k
+
+### 5. Working with Directories
+
+## Directory shorcuts
+
+* **.** : This directory
+* **..** : The parent directory
+* **cd -**: Change to the previous directory
+
+## Directory Separator
+
+* **/** : Directory separator (forward slash)
+
+```
+ubuntu@ubuntu-vm:~$
+ubuntu@ubuntu-vm:~$ cd Desktop/
+ubuntu@ubuntu-vm:~/Desktop$ cd -
+/home/ubuntu
+ubuntu@ubuntu-vm:~$
+ubuntu@ubuntu-vm:~$ pwd
+/home/ubuntu
+ubuntu@ubuntu-vm:~$ cd Desktop/
+ubuntu@ubuntu-vm:~/Desktop$ pwd
+/home/ubuntu/Desktop
+ubuntu@ubuntu-vm:~/Desktop$ cd ..
+ubuntu@ubuntu-vm:~$ pwd
+/home/ubuntu
+ubuntu@ubuntu-vm:~$ cd ..
+ubuntu@ubuntu-vm:/home$ pwd
+/home
+ubuntu@ubuntu-vm:/home$ cd ubuntu/
+ubuntu@ubuntu-vm:~$ pwd
+/home/ubuntu
+ubuntu@ubuntu-vm:~$ cd .
+ubuntu@ubuntu-vm:~$ pwd
+/home/ubuntu
+ubuntu@ubuntu-vm:~$ cd ..
+ubuntu@ubuntu-vm:/home$ pwd
+/home
+ubuntu@ubuntu-vm:/home$ cd /home/ubuntu/
+ubuntu@ubuntu-vm:~$ pwd
+/home/ubuntu
+ubuntu@ubuntu-vm:~$ cd /var/tmp/
+ubuntu@ubuntu-vm:/var/tmp$ pwd
+/var/tmp
+ubuntu@ubuntu-vm:/var/tmp$ echo $OLDPWD
+/home/ubuntu
+ubuntu@ubuntu-vm:/var/tmp$ cd -
+/home/ubuntu
+```
+
+## Executing Commands
+
+* $PATH determines command search path
+* You can specify a command with a full path
+* You can execute command not in $PATH
+* **./command** execute command in the current directory
+
+## Creatting and Removing Directories
+* **mkdir [args] [direcory-name]**: create/remove a directory
+```
+ubuntu@ubuntu-vm:~/Documents$ mkdir my-directory
+ubuntu@ubuntu-vm:~/Documents$ mkdir -p 1/2/3
+```
+
+* **rmdir [directory-name]**: remove a empty directory
+```
+ubuntu@ubuntu-vm:~/Documents$ rmdir my-directory
+```
+
+* **rm -rf [directory-name]**: recursively removes directory
+```
+ubuntu@ubuntu-vm:~/Documents$ rm -rf 1/
+```
+
+## Summary
+
+* Directories shorcuts
+	* **.**
+	* **..**
+	* **cd -**
+
+* How to execute commands outside of $PATH
+	* **/full/path/to/command**
+	* **./command-in-this-dir**
+
+* How to create and remove directories
+	* **mkdir**
+	* **rmdir**
+	* **rm**
