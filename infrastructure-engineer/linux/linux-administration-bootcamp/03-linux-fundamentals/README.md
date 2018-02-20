@@ -5,7 +5,7 @@
 	1. [Common Directories](#common-directories)
 	2. [Comprehensive Directory Listing](#comprehensive-directory-listing)
 	3. [Application Directory Structures](#application-directory-structures)
-2. [The Shell](#the-shell)
+2. [The Shell](#2-the-shell)
 	1. [What the shell is](#what-the-shell-is)
 	2. [Command Line Interface vs a GUI](#command-line-interface-vs-a-gui)
 	3. [The Prompt](#the-prompt)
@@ -22,7 +22,7 @@ The filesystem hierarchy
 * Location of operating system components
 * Application directory structures
 
-### 1. Common Directories
+### Common Directories
 
 * **/**: "Root", the top of the file system hiearchy
 * **/bin**: Binaries and other executable programs
@@ -37,7 +37,7 @@ The filesystem hierarchy
 
 ![linux-forlders](http://www.linuxtrainingacademy.com/wp-content/uploads/2014/03/linux-directory-tree.jpg)
 
-### 2. Comprehensive Directory Listing
+### Comprehensive Directory Listing
 
 * **/**: "Root", the top of the file system hiearchy
 * **/bin**: Binaries and other executable programs
@@ -71,7 +71,7 @@ The filesystem hierarchy
 * **/var**: Variable data, most notably log files
 * **/var/log**: Log files
 
-### 3. Application Directory Structures
+### Application Directory Structures
 
 * **/user/local**:
 	* **/usr/local/crashplan/bin**
@@ -117,18 +117,18 @@ The filesystem hierarchy
 
 ## The Shell
 
-### What you will learn
+### 2. What you will learn
 
 * What the shell is
 * How to access the shell
 * What the superuser account is
 
-### 1. What the shell is
+### What the shell is
 * The default interface to Linux
 * A program that accepts your commands and executes those commands
 * Also called a command line interpreter
 
-### 2. Command Line Interface vs a GUI
+### Command Line Interface vs a GUI
 CLI x GUI
 
 * The command line is more powerful
@@ -136,7 +136,7 @@ CLI x GUI
 * Server distributions do not includ GUIs
 * Desktop distributions have a GUIs and CLIs
 
-### 3. The Prompt
+### The Prompt
 
 * Shell prompt
 ```
@@ -162,7 +162,7 @@ $
 >
 ```
 
-### 4. Root, the Superuser
+### Root, the Superuser
 
 * Root is all powerfull
 * Normal accounts can only do a subset of the things root can do
@@ -171,7 +171,7 @@ $
 * Day to day activities will be performed using a normal account
 * 
 
-### 5. Shorcut
+### Shorcut
 
 * Tilda Expansion: shorcut for home directory
 	* ~jason: /home/jason
@@ -179,7 +179,7 @@ $
 	* ~root: /root
 	* ~ftp: /srv/ftp
 
-### 6. Multi-Line Prompts
+### Multi-Line Prompts
 ```
 linuxsvr:[/home/jason]
 $
