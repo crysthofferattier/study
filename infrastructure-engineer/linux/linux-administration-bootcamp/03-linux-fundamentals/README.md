@@ -26,11 +26,22 @@
 	6. [Get Help with --help or -h](#get-help-with-help-or-h)
 	7. [Searching Man Pages](#searching-man-pages)
 
-5. [Working with Directories](#working-with-directories)
+5. [Working with Directories](#5-working-with-directories)
 	1. [Directory shorcuts](#directory-shorcuts)
 	2. [Directory Separator](#directory-separator)
 	3. [Executing Commands](#executing-commands)
 	4. [Creatting and Removing Directories](#creatting-and-removing-directories)
+
+6. [Listing Files and Understanding LS Output](#6-listing-files-and-understanding-ls-output)
+	1. [Decoding **ls -l** Output](#decoding-ls-l-output)
+	2. [Listing All Files, Including Hidden Files](#listing-all-files-including-hidden-files)
+	3. [Listing Files by Type](#listing-files-by-type)
+	4. [Symbolic Links](#symbolic-links)
+	5. [Listing Files by Time and in Reverse](#listing-files-by-time-and-in-reverse)
+	6. [The **tree** command](#the-tree-command)
+	7. [List Directories, Not Contents](#list-directories-not-contents)
+	8. [Listing Files with Color](#listing-files-with-color)
+	9. [Working with Spaces in Names](#working-with-spaces-in-names)
 
 ## 1. Linux Directory Structure
 The filesystem hierarchy
@@ -431,3 +442,330 @@ ubuntu@ubuntu-vm:~/Documents$ rm -rf 1/
 	* **mkdir**
 	* **rmdir**
 	* **rm**
+
+## 6. Listing Files and Understanding LS Output
+
+### Decoding **ls -l** Output
+```
+ubuntu@ubuntu-vm:~/Desktop$ ls -l
+total 4
+-rw-rw-r-- 1 ubuntu ubuntu 12 Fev 19 16:51 file.txt
+```
+
+	* Permissions: -rw-rw-r--
+	* Number of links: 1
+	* Owner name: ubuntu
+	* Group name: ubuntu
+	* Number of bytes in the file: 12
+	* Last modification time: Fev 19 16:51
+	* File name: file.txt
+
+### Listing All Files, Including Hidden Files
+* Hidden files begin with a period.
+	* Sometimes called "dot files"
+* Hidden files are not displayed by default
+* To show hidden files with **ls**, use **ls -a**
+* Command options can be combined
+	* **ls -l -a** is the same as **ls -la** and **ls -al**
+```
+ubuntu@ubuntu-vm:~$ ls                                                            
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos         
+ubuntu@ubuntu-vm:~$ ls -l                                                         
+total 32                                                                          
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 20:16 Desktop                              
+drwxr-xr-x 3 ubuntu ubuntu 4096 Fev 19 20:07 Documents                            
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Downloads                            
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Music                                
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Pictures                             
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Public                               
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Templates                            
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Videos                               
+ubuntu@ubuntu-vm:~$ ls -a                                                         
+.              Desktop        .local                     Videos                   
+..             .dmrc          Music                      .Xauthority              
+.bash_history  Documents      Pictures                   .xsession-errors         
+.bash_logout   Downloads      .profile                   .xsession-errors.old     
+.bashrc        .gconf         Public                                              
+.cache         .gnupg         .sudo_as_admin_successful                           
+.config        .ICEauthority  Templates                                           
+ubuntu@ubuntu-vm:~$ ls -la                                                        
+total 96                                                                          
+drwxr-xr-x 15 ubuntu ubuntu 4096 Fev 19 15:06 .                                   
+drwxr-xr-x  3 root   root   4096 Fev 19 11:43 ..                                  
+-rw-------  1 ubuntu ubuntu  701 Fev 19 18:22 .bash_history                       
+-rw-r--r--  1 ubuntu ubuntu  220 Fev 19 11:43 .bash_logout                        
+-rw-r--r--  1 ubuntu ubuntu 3771 Fev 19 11:43 .bashrc                             
+drwx------ 11 ubuntu ubuntu 4096 Fev 19 13:55 .cache                              
+drwx------ 14 ubuntu ubuntu 4096 Fev 19 12:43 .config                             
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 20:16 Desktop                             
+-rw-r--r--  1 ubuntu ubuntu   25 Fev 19 11:48 .dmrc                               
+drwxr-xr-x  3 ubuntu ubuntu 4096 Fev 19 20:07 Documents                           
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Downloads                           
+drwx------  2 ubuntu ubuntu 4096 Fev 19 11:47 .gconf                              
+drwx------  3 ubuntu ubuntu 4096 Fev 19 13:44 .gnupg                              
+-rw-------  1 ubuntu ubuntu 1320 Fev 19 13:44 .ICEauthority                       
+drwx------  3 ubuntu ubuntu 4096 Fev 19 11:48 .local                              
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Music                               
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Pictures                            
+-rw-r--r--  1 ubuntu ubuntu  655 Fev 19 11:43 .profile                            
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Public                              
+-rw-r--r--  1 root   root      0 Fev 19 11:45 .sudo_as_admin_successful           
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Templates                           
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Videos                              
+-rw-------  1 ubuntu ubuntu   54 Fev 19 13:44 .Xauthority                         
+-rw-------  1 ubuntu ubuntu  268 Fev 19 13:46 .xsession-errors                    
+-rw-------  1 ubuntu ubuntu 1734 Fev 19 13:24 .xsession-errors.old                
+```
+
+### Listing Files by Type
+
+* Use **ls -F** to reveal file types
+	* **/**: directory
+	* **@**: Link
+	* *****: Executable
+
+```
+ubuntu@ubuntu-vm:/usr/local/my-company$ ls
+my-app  mylink  README
+
+ubuntu@ubuntu-vm:/usr/local/my-company$ ls -F
+my-app/  mylink@  README
+
+ubuntu@ubuntu-vm:/usr/local/my-company$ ls -lF
+total 4
+drwxr-xr-x 2 root root 4096 Fev 19 20:29 my-app/
+lrwxrwxrwx 1 root root   29 Fev 19 20:31 mylink -> /home/ubuntu/Desktop/file.txt
+-rw-r--r-- 1 root root    0 Fev 19 20:29 README
+
+ubuntu@ubuntu-vm:/usr/local/my-company/my-app$ ls -F
+hello-world*
+```
+
+### Symbolic Links
+
+* A link is a points to the actual file or directory
+* Use the link as if it were the file
+* A link can be used to create a shorcut
+	* Use for long file or directory name
+	* Use to indicate the current version of software
+
+```
+ubuntu@ubuntu-vm:/usr/local/my-company$ sudo ln -s ~/Desktop/file.txt mylink
+```
+
+### Listing Files by Time and in Reverse
+
+* **ls -t**: List files by time
+* **ls -r**: Reverse order
+* **ls -latr**: long listing including all files reverse sorted by time
+
+```
+ubuntu@ubuntu-vm:~$ ls -l                                                         
+total 32                                                                          
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 20:16 Desktop                              
+drwxr-xr-x 3 ubuntu ubuntu 4096 Fev 19 20:07 Documents                            
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Downloads                            
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Music                                
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Pictures                             
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Public                               
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Templates                            
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Videos                               
+ubuntu@ubuntu-vm:~$                                                               
+ubuntu@ubuntu-vm:~$ ls -lr                                                        
+total 32                                                                          
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Videos                               
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Templates                            
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Public                               
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Pictures                             
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Music                                
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 11:48 Downloads                            
+drwxr-xr-x 3 ubuntu ubuntu 4096 Fev 19 20:07 Documents                            
+drwxr-xr-x 2 ubuntu ubuntu 4096 Fev 19 20:16 Desktop                              
+ubuntu@ubuntu-vm:~$ ls -lat                                                       
+total 96                                                                          
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 20:16 Desktop                             
+drwxr-xr-x  3 ubuntu ubuntu 4096 Fev 19 20:07 Documents                           
+-rw-------  1 ubuntu ubuntu  701 Fev 19 18:22 .bash_history                       
+drwxr-xr-x 15 ubuntu ubuntu 4096 Fev 19 15:06 .                                   
+drwx------ 11 ubuntu ubuntu 4096 Fev 19 13:55 .cache                              
+-rw-------  1 ubuntu ubuntu  268 Fev 19 13:46 .xsession-errors                    
+-rw-------  1 ubuntu ubuntu 1320 Fev 19 13:44 .ICEauthority                       
+drwx------  3 ubuntu ubuntu 4096 Fev 19 13:44 .gnupg                              
+-rw-------  1 ubuntu ubuntu   54 Fev 19 13:44 .Xauthority                         
+-rw-------  1 ubuntu ubuntu 1734 Fev 19 13:24 .xsession-errors.old                
+drwx------ 14 ubuntu ubuntu 4096 Fev 19 12:43 .config                             
+drwx------  3 ubuntu ubuntu 4096 Fev 19 11:48 .local                              
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Downloads                           
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Music                               
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Pictures                            
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Public                              
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Templates                           
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Videos                              
+-rw-r--r--  1 ubuntu ubuntu   25 Fev 19 11:48 .dmrc                               
+drwx------  2 ubuntu ubuntu 4096 Fev 19 11:47 .gconf                              
+-rw-r--r--  1 root   root      0 Fev 19 11:45 .sudo_as_admin_successful           
+-rw-r--r--  1 ubuntu ubuntu  220 Fev 19 11:43 .bash_logout                        
+-rw-r--r--  1 ubuntu ubuntu 3771 Fev 19 11:43 .bashrc                             
+-rw-r--r--  1 ubuntu ubuntu  655 Fev 19 11:43 .profile                            
+drwxr-xr-x  3 root   root   4096 Fev 19 11:43 ..                                  
+ubuntu@ubuntu-vm:~$ ls -latr                                                      
+total 96                                                                          
+drwxr-xr-x  3 root   root   4096 Fev 19 11:43 ..                                  
+-rw-r--r--  1 ubuntu ubuntu  655 Fev 19 11:43 .profile                            
+-rw-r--r--  1 ubuntu ubuntu 3771 Fev 19 11:43 .bashrc                             
+-rw-r--r--  1 ubuntu ubuntu  220 Fev 19 11:43 .bash_logout                        
+-rw-r--r--  1 root   root      0 Fev 19 11:45 .sudo_as_admin_successful           
+drwx------  2 ubuntu ubuntu 4096 Fev 19 11:47 .gconf                              
+-rw-r--r--  1 ubuntu ubuntu   25 Fev 19 11:48 .dmrc                               
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Videos                              
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Templates                           
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Public                              
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Pictures                            
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Music                               
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 11:48 Downloads                           
+drwx------  3 ubuntu ubuntu 4096 Fev 19 11:48 .local                              
+drwx------ 14 ubuntu ubuntu 4096 Fev 19 12:43 .config                             
+-rw-------  1 ubuntu ubuntu 1734 Fev 19 13:24 .xsession-errors.old                
+-rw-------  1 ubuntu ubuntu   54 Fev 19 13:44 .Xauthority                         
+drwx------  3 ubuntu ubuntu 4096 Fev 19 13:44 .gnupg                              
+-rw-------  1 ubuntu ubuntu 1320 Fev 19 13:44 .ICEauthority                       
+-rw-------  1 ubuntu ubuntu  268 Fev 19 13:46 .xsession-errors                    
+drwx------ 11 ubuntu ubuntu 4096 Fev 19 13:55 .cache                              
+drwxr-xr-x 15 ubuntu ubuntu 4096 Fev 19 15:06 .                                   
+-rw-------  1 ubuntu ubuntu  701 Fev 19 18:22 .bash_history                       
+drwxr-xr-x  3 ubuntu ubuntu 4096 Fev 19 20:07 Documents                           
+drwxr-xr-x  2 ubuntu ubuntu 4096 Fev 19 20:16 Desktop                             
+```
+
+### The **tree** command
+
+* **ls -R**: Recursive **ls**
+```
+ubuntu@ubuntu-vm:~$ ls -R                                                 
+.:                                                                        
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos 
+                                                                          
+./Desktop:                                                                
+file.txt                                                                  
+                                                                          
+./Documents:                                                              
+my-directory                                                              
+                                                                          
+./Documents/my-directory:                                                 
+my-file.txt                                                               
+                                                                          
+./Downloads:                                                              
+                                                                          
+./Music:                                                                  
+                                                                          
+./Pictures:                                                               
+                                                                          
+./Public:                                                                 
+                                                                          
+./Templates:                                                              
+                                                                          
+./Videos:                                                                 
+```
+
+* Similar to **ls -R** but creates visual output
+	* **tree -d**: List directories only
+	* **tree -C**: Colorize output
+
+```
+ubuntu@ubuntu-vm:~$ tree
+.
+├── Desktop
+│   └── file.txt
+├── Documents
+│   └── my-directory
+│       └── my-file.txt
+├── Downloads
+├── Music
+├── Pictures
+├── Public
+├── Templates
+└── Videos
+
+9 directories, 2 files
+
+ubuntu@ubuntu-vm:~$ tree -d
+.
+├── Desktop
+├── Documents
+│   └── my-directory
+├── Downloads
+├── Music
+├── Pictures
+├── Public
+├── Templates
+└── Videos
+
+9 directories
+
+ubuntu@ubuntu-vm:~$ tree -C
+.
+├── Desktop
+│   └── file.txt
+├── Documents
+│   └── my-directory
+│       └── my-file.txt
+├── Downloads
+├── Music
+├── Pictures
+├── Public
+├── Templates
+└── Videos
+
+9 directories, 2 files
+```
+
+### List Directories, Not Contents
+
+* **ls -d**: List directory name, not contents
+
+```
+ubuntu@ubuntu-vm:~$ ls -d Music/
+Music/
+```
+
+### Listing Files with Color
+
+* **ls --color**: Colorizr the output
+	* Directories are blue
+
+```
+ubuntu@ubuntu-vm:~$ ls --color -F
+Desktop/    Downloads/  my-data.data  Public/     Videos/
+Documents/  Music/      Pictures/     Templates/
+```
+
+## Working with Spaces in Names
+
+* Just say no to spaces!
+* Alternatives:
+	* **-**: Hyphens
+	* **_**: Underscores
+	* CamelCase
+
+```
+ubuntu@ubuntu-vm:~$ mkdir my-directory
+ubuntu@ubuntu-vm:~$ cd my-directory
+```
+
+* Encapsulate the entire file name in quotes
+* Use a backslash **(\\)** to escape spaces
+
+### Summary
+
+* Useful **ls** options
+	* **-a**: List all files, including hidden files
+	* **- -color**: List files with colorized output
+	* **-d**: List directory names, not contents
+	* **-l**: Use the long listing format
+	* **-r**: Reverse the order
+	* **-R**: List files recursively
+	* **-t**: Sort by time, most recent first
+
+* Symbolic links
+* Hidden files and directories
+* Spaces in file names
