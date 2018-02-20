@@ -9,6 +9,8 @@
 	5. [Linux is Linux](#linux-is-linux)
 	6. [Sumary](#sumary)
 2. [Getting Connected](#getting-connected)
+	1. [What you will learn](#what-you-will-learn)
+	2. [Connecting Directly](#connecting-directly)
 
 ## 1. Linux Distributions
 
@@ -61,3 +63,18 @@
 * CantOS = RHEL - branding/logos
 
 ## Getting Connected
+
+### What you will learn
+
+* How to log into Linux
+* What SSH is
+* Which SSH clients to use
+
+### Connecting Directly
+
+* Using Ubuntu
+* Log into the GUI
+	* Open up a terminal
+
+* Open terminal: 
+	* Ctrl + Alt + T
