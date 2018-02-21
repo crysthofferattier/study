@@ -43,6 +43,17 @@
 	8. [Listing Files with Color](#listing-files-with-color)
 	9. [Working with Spaces in Names](#working-with-spaces-in-names)
 
+7. [File and Directory Permissions Explained - Part One](#7-file-and-directory-permissions-explained---part-one)
+	1. [Permissions](#permissions)
+	2. [Permissions - Files vc Directories](#permissions---files-vc-directories)
+	3. [Permission Categories](#permission-categories)
+	4. [Groups](#groups)
+	5. [Secret Decoder Ring](#secret-decoder-ring)
+	6. [Changing Permissions](#changing-permissions)
+	7. [Numeric Based Permissions](#numeric-based-permissions)
+	8. [Order Has Meaning](#order-has-meaning)
+	9. [Commonly Used Permissions](#commonly-used-permissions)
+
 ## 1. Linux Directory Structure
 The filesystem hierarchy
 
@@ -769,3 +780,137 @@ ubuntu@ubuntu-vm:~$ cd my-directory
 * Symbolic links
 * Hidden files and directories
 * Spaces in file names
+
+## 7. File and Directory Permissions Explained - Part One
+
+### Permissions
+
+```
+ubuntu@ubuntu-vm:~/Documents/my-directory$ ls -ls
+total 0
+0 -rw-rw-r-- 1 ubuntu ubuntu 0 Fev 19 20:23 my-file.txt
+```
+
+| Symbol | Type |
+| ------ | ---- |
+| -      | Regular file|
+| d      | Directory |
+| &#124; | Symbolic link |
+| r | read |
+| w | write |
+| x | execute |
+
+### Permissions - Files vc Directories
+
+| Permission | File | Directory |
+| ---------- | ---- | --------- |
+| Read (r) | Allows a file to be read| Allow a file names in the directory to be read|
+|Write (w) | Allows a file to modified | Allows entries to be modified within the directory|
+| Execute (x) | Allows the execution of a file | Allows access to contents and metadata for entries|
+
+### Permission Categories
+
+| Symbol | Category |
+| ------ | -------- |
+| u | User |
+| g | Group |
+| o | Other |
+| a | All |
+
+### Groups
+
+* Every user is in at least on group
+* User can belong to many groups
+* Groups are used to organize users
+* The **groups** command display a user's groups
+* you can also use **id -Gn**
+
+```
+ubuntu@ubuntu-vm:~$ groups
+ubuntu adm cdrom sudo dip plugdev lpadmin sambashare
+ubuntu@ubuntu-vm:~$ id -Gn
+ubuntu adm cdrom sudo dip plugdev lpadmin sambashare
+```
+
+### Secret Decoder Ring
+
+* **-rw-rw-r-- 1 ubuntu ubuntu 0 Fev 19 20:23 my-file.txt**
+	* **-**: File type
+	* **rw-**: User permission
+	* **r--**: Group permission
+	* **r--**: Other Users permission
+
+### Changing Permissions
+
+| Item | Meaning |
+| ---- | ------- |
+| chmod | Change mode command |
+| ugoa | User category user, group, toher, all |
+| **+** **-** **+** | Add, subtract, or set permissions
+| rwx | Read, Write, Execute |
+
+```
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-r--r-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod g+w my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-rw-r-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod g+wx my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-rwxr-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod u+rwx,g-x my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rwxrw-r-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod a=r my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-r--r--r-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod u=rwx,g=rx,o= my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rwxr-x--- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+```
+
+### Numeric Based Permissions
+
+| r | w | x | - |
+| - | - | - | - |
+| 0 | 0 | 0 | Value for off |
+| 1 | 1 | 1 | Binary value for on |
+| 4 | 2 | 1 | base 10 value for on |
+
+* Options:
+
+| Octal | Binary | String | Description |
+| ----- | ------ | ------ | ----------- |
+| 0 | 0 | --- | No permissions |
+| 1 | 1 | --x | Execute only |
+| 2 | 10 | -w- | Write only |
+| 3 | 11 | -wx- | Write and execute (2+1) |
+| 4 | 100 | r-- | Read only |
+| 5 | 101 | r-x | Read and execute (4+1) |
+| 6 | 110 | rw- | Read and write (4+2) |
+| 7 | 111 | rwx | Read, write, and execute (4+2+1) | 
+
+### Order Has Meaning
+
+| - | U | G | O |
+| - | - | - | - |
+| Symbolic | rwx | r-x | r-- |
+| Binary | 111 | 101 | 100 |
+| Decimal | 7 | 5 | 4 | 
+
+### Commonly Used Permissions
+
+| Symbolic | Octal |
+| -------- | ----- |
+| -rwx------| 700 |
+| -rwxr-xr-x | 755 |
+| -rw-rw-r-- | 664 |
+| -rw-rw---- | 660 |
+| -rw-r--r-- | 644 |
+
+### 8 File and Directory Permissions Explained - Part Two
