@@ -914,3 +914,105 @@ ubuntu@ubuntu-vm:~$ ls -l my-data.data
 | -rw-r--r-- | 644 |
 
 ### 8 File and Directory Permissions Explained - Part Two
+
+### Working with groups
+
+* New files belong to your primary group
+* The **chgrp** command changes the group
+
+```
+ubuntu@ubuntu-vm:~$ chgrp adm my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-r--r-- 1 ubuntu adm 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod g+w my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-rw-r-- 1 ubuntu adm 0 Fev 19 20:45 my-data.data
+```
+
+### Directory Permissions Revisited
+
+* Permissions on a directory can effect the files in the directory
+* If the file permissions look correct, start checking directory permissions
+* Work your way up to the root
+
+### File Creation Mask
+### The **umask** command
+### Octal Substraction is an Estimation
+### Common umask modes
+Special Modes
+
+* File creation mask determines default permissions
+* If no mask were used permissions would be:
+	* 777 for directories
+	* 666 for files
+
+### The **umask** command
+
+```
+$ umask [-S] [mode]
+```
+
+* Sets the file creation mask to mode, if given
+* Use -S to for symbolic notation
+
+| - | Directory | File |
+| - | - | - |
+| Base Permission | 777 | 666 |
+| Subtract Umask | -022 | -022 |
+| Creations Permission | 755 | 644 |
+
+### Octal Substraction is an Estimation
+
+| - | Directory | File |
+| - | - | - |
+| Base Permission | 777 | 666 |
+| Subtract Umask | -007 | -007 |
+| Creations Permission | 770 | 660* |
+
+### Common umask modes
+
+* 022
+* 002
+* 077
+* 007
+
+### Special Modes
+
+* **umask 0022** is the same as **umask 022**
+* **chmod 0644** is the same as **chmod 644**
+* The special mode are:
+	* setuid
+	* setgid
+	* sticky
+
+```
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ umask
+0002
+
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ umask -S
+u=rwx,g=rwx,o=rx
+
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ ls -l
+total 4
+drwxrwxr-x 2 ubuntu ubuntu 4096 Fev 19 22:29 a-dir
+-rw-rw-r-- 1 ubuntu ubuntu    0 Fev 19 22:29 a-file
+
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ umask 007
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ umask -S
+u=rwx,g=rwx,o=
+
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ ls -l
+total 4
+drwxrwx--- 2 ubuntu ubuntu 4096 Fev 19 22:31 a-dir
+-rw-rw---- 1 ubuntu ubuntu    0 Fev 19 22:31 a-file
+```
+
+### Summary
+
+* Symbolic permission
+* Numeric/octal permissions
+* File versus directory permissions
+* Changing permissions
+* Working with groups
+* File creation mask
