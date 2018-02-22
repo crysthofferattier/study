@@ -53,6 +53,11 @@
 	7. [Numeric Based Permissions](#numeric-based-permissions)
 	8. [Order Has Meaning](#order-has-meaning)
 	9. [Commonly Used Permissions](#commonly-used-permissions)
+8. [Finding Files and Directories](#8-finding-files-and-directories)
+	1. [The **find** command](#the-find-command)
+	2. [A fast find **-locate**](#a-fast-find--locate)
+8. []()
+
 
 ## 1. Linux Directory Structure
 The filesystem hierarchy
@@ -1016,3 +1021,86 @@ drwxrwx--- 2 ubuntu ubuntu 4096 Fev 19 22:31 a-dir
 * Changing permissions
 * Working with groups
 * File creation mask
+
+## 8. Finding Files and Directories
+
+### The **find** command
+
+```
+$ find [path] [exporession]
+```
+
+* Recursive finds files in path that match expression. If no arguments are supplied it find all files in the current directory.
+
+* Find options:
+	* **-name [pattern]**: Find files and directories that match pattern
+	* **-iname [pattern]**: Line **-name**, but ignores case.
+	* **-ls**: Performs an **ls** on each of the found items.
+	* **-mtime [days]**: Finds files that are days old.
+	* **-size [num]**: Finds file that are of size **num**
+	* **-newer file**: Finds files that are newer than file
+	* **-exec command {} \;** Run command against all the files that are found
+
+```
+ubt-docker@ubuntu-vm:~$ find
+ubt-docker@ubuntu-vm:~$ find .
+```
+
+```
+ubt-docker@ubuntu-vm:~$ find /sbin -name makedev
+ubt-docker@ubuntu-vm:~$
+
+ubt-docker@ubuntu-vm:~$ find /sbin -iname makedev
+/sbin/MAKEDEV
+
+ubt-docker@ubuntu-vm:~$ find /sbin -name *v
+/sbin/mkfs.ext4dev
+/sbin/iwpriv
+/sbin/fsck.ext4dev
+/sbin/blockdev
+
+
+```
+
+```
+ubt-docker@ubuntu-vm:~$ find . -mtime +10 -mtime -13
+```
+
+```
+ubt-docker@ubuntu-vm:~$ find . -name n* -ls
+557059      4 drwxr-xr-x   2 ubt-docker ubuntu       4096 Fev 22 13:59 ./new-file.txt
+```
+
+```
+ubt-docker@ubuntu-vm:~$ find . -size +1M
+./18344_1464633886.mp3
+ubt-docker@ubuntu-vm:~$ find . -size +1K
+ubt-docker@ubuntu-vm:~$ find . -size +1G
+```
+
+```
+ubt-docker@ubuntu-vm:~$ find . -type d -newer new-file.txt/
+.
+./Documents
+```
+
+```
+ubt-docker@ubuntu-vm:~$ find . -exec file {} \;
+```
+
+### A fast find **-locate**
+
+```
+ubt-docker@ubuntu-vm:~$ locate apttern
+```
+
+* Lists files that match pattern
+* Faster than the find command
+* Queries an index
+* Results are not in real time
+* May not be anabled on all systems
+
+### Summary 
+* **find**
+* **locate**
+
