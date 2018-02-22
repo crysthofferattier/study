@@ -1091,7 +1091,7 @@ ubt-docker@ubuntu-vm:~$ find . -exec file {} \;
 ### A fast find **-locate**
 
 ```
-ubt-docker@ubuntu-vm:~$ locate apttern
+ubt-docker@ubuntu-vm:~$ locate [pattern]
 ```
 
 * Lists files that match pattern
@@ -1104,3 +1104,132 @@ ubt-docker@ubuntu-vm:~$ locate apttern
 * **find**
 * **locate**
 
+## 9. Viewing Files and the Nano Editor
+
+* **cat [file-name]**: Display the contents of file
+* **more [file-name]**: Browse through a text file
+* **less [file-name]**: More features than more
+* **head [file-name]**: Output the beginning (or top) portion of file
+* **tail [file-name]**: Output the endind (or bottom) portion of file
+
+### Head and Tail
+
+* Display only 10 lines by default
+* Change this behavior with **-n** flag
+	* **n**: number of lines
+	```
+	ubt-docker@ubuntu-vm:~$ tail -15 [file-name]
+	```
+
+### Viewing files in real time
+
+- **-f**: Follow the file, display data as it is being written to the file
+```
+ubt-docker@ubuntu-vm:~$ tail -f [file-name]
+```
+
+### Nano Editor
+
+* Nano is a simple editor
+* Easy to learn
+* Not as adcanced as **vi** or **emacs**
+* If nano isn't available, look for pico
+
+```
+ubt-docker@ubuntu-vm:~$ nano [file-name]
+```
+
+* Commands
+	* **Ctrl + G**: Get help
+
+### Summary
+
+* The are various commands that display the contents of files
+* The nano editor is easy to use and learn
+
+## Editing Files with Vi
+
+### The Vi Editor
+
+* has advanced and powerful features
+* Not intuitive
+* Harder to learn than **nano**
+* Requires a time investiment
+
+* **vi [file-name]**: Create/Edit file
+```
+ubt-docker@ubuntu-vm:~$ vi [file-name]
+```
+
+* **vim [file-name]**: Same as **vi**, but more features
+```
+ubt-docker@ubuntu-vm:~$ vim [file-name]
+```
+
+* **view [file-name]**: Starts vim in read-only mode
+```
+ubt-docker@ubuntu-vm:~$ vim [file-name]
+```
+
+### Vi Command Mode and Navigation
+
+* **k**: Up one line
+* **j**: Down one line
+* **h**: Left one character
+* **l**: Right one character
+* **w**: Right one word
+* **b**: Left one word
+* **^**: Go to the beginning of the line
+* **$**: Go to the end of the line
+
+### Vi Insert Mode
+
+* **i**: Insert at the cursor position
+* **I**: Insert at the beginning of the line
+* **a**: Append after the cursor position
+* **A**: Append at the end of the line
+
+### Vi Line Mode
+
+* **:w**: Writes (saves) the file
+* **:w!**: Forces the file to be saved
+* **:q**: Quit
+* **:q!**: Quit without saving changes
+* **:wq!**: Write and quit
+* **:x**: Same as **:wq**
+* **:n**: Positions the cursor at line **n**
+* **:$**: Positions the cursor on the last line
+* **:set nu**:  Turn on line numbering
+* **:set nonu**: Turn of line numbering
+* **:help [subcommand]**: Get Help
+
+### Vi Modes
+
+| Mode | Key |
+| ---- | --- |
+| Command | Esc |
+| Insert | i I a A |
+| Line | **:** |
+
+### Vi - Repeating Commands
+
+* Repear a command by preceding it with a number
+	* 5K: Move up a line 5 times
+	* 80i[text][esc]: Insert [text] 80 times
+	* 80i_[esc]: Insert 80 " _ "  characters
+
+### Vi - Deleting Text
+
+* **x**: Delete a character
+* **dw**: Delete a word
+* **dd**: Delete a line
+* **D**: Dele from the current position
+
+### Vi - Changing Text
+
+* **r**: Replace the current character
+* **cw**: Change the current word
+* **cc**; Change the current line
+* **c$**: Change the next from the current position
+* **C**: Same as **c$**
+* **~**: Reverses the case of a character
