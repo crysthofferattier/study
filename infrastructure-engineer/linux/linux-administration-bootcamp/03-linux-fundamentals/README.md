@@ -43,6 +43,22 @@
 	8. [Listing Files with Color](#listing-files-with-color)
 	9. [Working with Spaces in Names](#working-with-spaces-in-names)
 
+7. [File and Directory Permissions Explained - Part One](#7-file-and-directory-permissions-explained---part-one)
+	1. [Permissions](#permissions)
+	2. [Permissions - Files vc Directories](#permissions---files-vc-directories)
+	3. [Permission Categories](#permission-categories)
+	4. [Groups](#groups)
+	5. [Secret Decoder Ring](#secret-decoder-ring)
+	6. [Changing Permissions](#changing-permissions)
+	7. [Numeric Based Permissions](#numeric-based-permissions)
+	8. [Order Has Meaning](#order-has-meaning)
+	9. [Commonly Used Permissions](#commonly-used-permissions)
+8. [Finding Files and Directories](#8-finding-files-and-directories)
+	1. [The **find** command](#the-find-command)
+	2. [A fast find **-locate**](#a-fast-find--locate)
+8. []()
+
+
 ## 1. Linux Directory Structure
 The filesystem hierarchy
 
@@ -769,3 +785,451 @@ ubuntu@ubuntu-vm:~$ cd my-directory
 * Symbolic links
 * Hidden files and directories
 * Spaces in file names
+
+## 7. File and Directory Permissions Explained - Part One
+
+### Permissions
+
+```
+ubuntu@ubuntu-vm:~/Documents/my-directory$ ls -ls
+total 0
+0 -rw-rw-r-- 1 ubuntu ubuntu 0 Fev 19 20:23 my-file.txt
+```
+
+| Symbol | Type |
+| ------ | ---- |
+| -      | Regular file|
+| d      | Directory |
+| &#124; | Symbolic link |
+| r | read |
+| w | write |
+| x | execute |
+
+### Permissions - Files vc Directories
+
+| Permission | File | Directory |
+| ---------- | ---- | --------- |
+| Read (r) | Allows a file to be read| Allow a file names in the directory to be read|
+|Write (w) | Allows a file to modified | Allows entries to be modified within the directory|
+| Execute (x) | Allows the execution of a file | Allows access to contents and metadata for entries|
+
+### Permission Categories
+
+| Symbol | Category |
+| ------ | -------- |
+| u | User |
+| g | Group |
+| o | Other |
+| a | All |
+
+### Groups
+
+* Every user is in at least on group
+* User can belong to many groups
+* Groups are used to organize users
+* The **groups** command display a user's groups
+* you can also use **id -Gn**
+
+```
+ubuntu@ubuntu-vm:~$ groups
+ubuntu adm cdrom sudo dip plugdev lpadmin sambashare
+ubuntu@ubuntu-vm:~$ id -Gn
+ubuntu adm cdrom sudo dip plugdev lpadmin sambashare
+```
+
+### Secret Decoder Ring
+
+* **-rw-rw-r-- 1 ubuntu ubuntu 0 Fev 19 20:23 my-file.txt**
+	* **-**: File type
+	* **rw-**: User permission
+	* **r--**: Group permission
+	* **r--**: Other Users permission
+
+### Changing Permissions
+
+| Item | Meaning |
+| ---- | ------- |
+| chmod | Change mode command |
+| ugoa | User category user, group, toher, all |
+| **+** **-** **+** | Add, subtract, or set permissions
+| rwx | Read, Write, Execute |
+
+```
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-r--r-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod g+w my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-rw-r-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod g+wx my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-rwxr-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod u+rwx,g-x my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rwxrw-r-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod a=r my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-r--r--r-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod u=rwx,g=rx,o= my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rwxr-x--- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+```
+
+### Numeric Based Permissions
+
+| r | w | x | - |
+| - | - | - | - |
+| 0 | 0 | 0 | Value for off |
+| 1 | 1 | 1 | Binary value for on |
+| 4 | 2 | 1 | base 10 value for on |
+
+* Options:
+
+| Octal | Binary | String | Description |
+| ----- | ------ | ------ | ----------- |
+| 0 | 0 | --- | No permissions |
+| 1 | 1 | --x | Execute only |
+| 2 | 10 | -w- | Write only |
+| 3 | 11 | -wx- | Write and execute (2+1) |
+| 4 | 100 | r-- | Read only |
+| 5 | 101 | r-x | Read and execute (4+1) |
+| 6 | 110 | rw- | Read and write (4+2) |
+| 7 | 111 | rwx | Read, write, and execute (4+2+1) | 
+
+### Order Has Meaning
+
+| - | U | G | O |
+| - | - | - | - |
+| Symbolic | rwx | r-x | r-- |
+| Binary | 111 | 101 | 100 |
+| Decimal | 7 | 5 | 4 | 
+
+### Commonly Used Permissions
+
+| Symbolic | Octal |
+| -------- | ----- |
+| -rwx------| 700 |
+| -rwxr-xr-x | 755 |
+| -rw-rw-r-- | 664 |
+| -rw-rw---- | 660 |
+| -rw-r--r-- | 644 |
+
+### 8 File and Directory Permissions Explained - Part Two
+
+### Working with groups
+
+* New files belong to your primary group
+* The **chgrp** command changes the group
+
+```
+ubuntu@ubuntu-vm:~$ chgrp adm my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-r--r-- 1 ubuntu adm 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod g+w my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-rw-r-- 1 ubuntu adm 0 Fev 19 20:45 my-data.data
+```
+
+### Directory Permissions Revisited
+
+* Permissions on a directory can effect the files in the directory
+* If the file permissions look correct, start checking directory permissions
+* Work your way up to the root
+
+### File Creation Mask
+### The **umask** command
+### Octal Substraction is an Estimation
+### Common umask modes
+Special Modes
+
+* File creation mask determines default permissions
+* If no mask were used permissions would be:
+	* 777 for directories
+	* 666 for files
+
+### The **umask** command
+
+```
+$ umask [-S] [mode]
+```
+
+* Sets the file creation mask to mode, if given
+* Use -S to for symbolic notation
+
+| - | Directory | File |
+| - | - | - |
+| Base Permission | 777 | 666 |
+| Subtract Umask | -022 | -022 |
+| Creations Permission | 755 | 644 |
+
+### Octal Substraction is an Estimation
+
+| - | Directory | File |
+| - | - | - |
+| Base Permission | 777 | 666 |
+| Subtract Umask | -007 | -007 |
+| Creations Permission | 770 | 660* |
+
+### Common umask modes
+
+* 022
+* 002
+* 077
+* 007
+
+### Special Modes
+
+* **umask 0022** is the same as **umask 022**
+* **chmod 0644** is the same as **chmod 644**
+* The special mode are:
+	* setuid
+	* setgid
+	* sticky
+
+```
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ umask
+0002
+
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ umask -S
+u=rwx,g=rwx,o=rx
+
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ ls -l
+total 4
+drwxrwxr-x 2 ubuntu ubuntu 4096 Fev 19 22:29 a-dir
+-rw-rw-r-- 1 ubuntu ubuntu    0 Fev 19 22:29 a-file
+
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ umask 007
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ umask -S
+u=rwx,g=rwx,o=
+
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ ls -l
+total 4
+drwxrwx--- 2 ubuntu ubuntu 4096 Fev 19 22:31 a-dir
+-rw-rw---- 1 ubuntu ubuntu    0 Fev 19 22:31 a-file
+```
+
+### Summary
+
+* Symbolic permission
+* Numeric/octal permissions
+* File versus directory permissions
+* Changing permissions
+* Working with groups
+* File creation mask
+
+## 8. Finding Files and Directories
+
+### The **find** command
+
+```
+$ find [path] [exporession]
+```
+
+* Recursive finds files in path that match expression. If no arguments are supplied it find all files in the current directory.
+
+* Find options:
+	* **-name [pattern]**: Find files and directories that match pattern
+	* **-iname [pattern]**: Line **-name**, but ignores case.
+	* **-ls**: Performs an **ls** on each of the found items.
+	* **-mtime [days]**: Finds files that are days old.
+	* **-size [num]**: Finds file that are of size **num**
+	* **-newer file**: Finds files that are newer than file
+	* **-exec command {} \;** Run command against all the files that are found
+
+```
+ubt-docker@ubuntu-vm:~$ find
+ubt-docker@ubuntu-vm:~$ find .
+```
+
+```
+ubt-docker@ubuntu-vm:~$ find /sbin -name makedev
+ubt-docker@ubuntu-vm:~$
+
+ubt-docker@ubuntu-vm:~$ find /sbin -iname makedev
+/sbin/MAKEDEV
+
+ubt-docker@ubuntu-vm:~$ find /sbin -name *v
+/sbin/mkfs.ext4dev
+/sbin/iwpriv
+/sbin/fsck.ext4dev
+/sbin/blockdev
+
+
+```
+
+```
+ubt-docker@ubuntu-vm:~$ find . -mtime +10 -mtime -13
+```
+
+```
+ubt-docker@ubuntu-vm:~$ find . -name n* -ls
+557059      4 drwxr-xr-x   2 ubt-docker ubuntu       4096 Fev 22 13:59 ./new-file.txt
+```
+
+```
+ubt-docker@ubuntu-vm:~$ find . -size +1M
+./18344_1464633886.mp3
+ubt-docker@ubuntu-vm:~$ find . -size +1K
+ubt-docker@ubuntu-vm:~$ find . -size +1G
+```
+
+```
+ubt-docker@ubuntu-vm:~$ find . -type d -newer new-file.txt/
+.
+./Documents
+```
+
+```
+ubt-docker@ubuntu-vm:~$ find . -exec file {} \;
+```
+
+### A fast find **-locate**
+
+```
+ubt-docker@ubuntu-vm:~$ locate [pattern]
+```
+
+* Lists files that match pattern
+* Faster than the find command
+* Queries an index
+* Results are not in real time
+* May not be anabled on all systems
+
+### Summary 
+* **find**
+* **locate**
+
+## 9. Viewing Files and the Nano Editor
+
+* **cat [file-name]**: Display the contents of file
+* **more [file-name]**: Browse through a text file
+* **less [file-name]**: More features than more
+* **head [file-name]**: Output the beginning (or top) portion of file
+* **tail [file-name]**: Output the endind (or bottom) portion of file
+
+### Head and Tail
+
+* Display only 10 lines by default
+* Change this behavior with **-n** flag
+	* **n**: number of lines
+	```
+	ubt-docker@ubuntu-vm:~$ tail -15 [file-name]
+	```
+
+### Viewing files in real time
+
+- **-f**: Follow the file, display data as it is being written to the file
+```
+ubt-docker@ubuntu-vm:~$ tail -f [file-name]
+```
+
+### Nano Editor
+
+* Nano is a simple editor
+* Easy to learn
+* Not as adcanced as **vi** or **emacs**
+* If nano isn't available, look for pico
+
+```
+ubt-docker@ubuntu-vm:~$ nano [file-name]
+```
+
+* Commands
+	* **Ctrl + G**: Get help
+
+### Summary
+
+* The are various commands that display the contents of files
+* The nano editor is easy to use and learn
+
+## Editing Files with Vi
+
+### The Vi Editor
+
+* has advanced and powerful features
+* Not intuitive
+* Harder to learn than **nano**
+* Requires a time investiment
+
+* **vi [file-name]**: Create/Edit file
+```
+ubt-docker@ubuntu-vm:~$ vi [file-name]
+```
+
+* **vim [file-name]**: Same as **vi**, but more features
+```
+ubt-docker@ubuntu-vm:~$ vim [file-name]
+```
+
+* **view [file-name]**: Starts vim in read-only mode
+```
+ubt-docker@ubuntu-vm:~$ vim [file-name]
+```
+
+### Vi Command Mode and Navigation
+
+* **k**: Up one line
+* **j**: Down one line
+* **h**: Left one character
+* **l**: Right one character
+* **w**: Right one word
+* **b**: Left one word
+* **^**: Go to the beginning of the line
+* **$**: Go to the end of the line
+
+### Vi Insert Mode
+
+* **i**: Insert at the cursor position
+* **I**: Insert at the beginning of the line
+* **a**: Append after the cursor position
+* **A**: Append at the end of the line
+
+### Vi Line Mode
+
+* **:w**: Writes (saves) the file
+* **:w!**: Forces the file to be saved
+* **:q**: Quit
+* **:q!**: Quit without saving changes
+* **:wq!**: Write and quit
+* **:x**: Same as **:wq**
+* **:n**: Positions the cursor at line **n**
+* **:$**: Positions the cursor on the last line
+* **:set nu**:  Turn on line numbering
+* **:set nonu**: Turn of line numbering
+* **:help [subcommand]**: Get Help
+
+### Vi Modes
+
+| Mode | Key |
+| ---- | --- |
+| Command | Esc |
+| Insert | i I a A |
+| Line | **:** |
+
+### Vi - Repeating Commands
+
+* Repear a command by preceding it with a number
+	* 5K: Move up a line 5 times
+	* 80i[text][esc]: Insert [text] 80 times
+	* 80i_[esc]: Insert 80 " _ "  characters
+
+### Vi - Deleting Text
+
+* **x**: Delete a character
+* **dw**: Delete a word
+* **dd**: Delete a line
+* **D**: Dele from the current position
+
+### Vi - Changing Text
+
+* **r**: Replace the current character
+* **cw**: Change the current word
+* **cc**; Change the current line
+* **c$**: Change the next from the current position
+* **C**: Same as **c$**
+* **~**: Reverses the case of a character

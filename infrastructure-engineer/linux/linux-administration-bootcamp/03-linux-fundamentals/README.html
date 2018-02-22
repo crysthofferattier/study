@@ -1066,10 +1066,10 @@ body .markdown-body
 <li>
 <p><a href="#6-listing-files-and-understanding-ls-output">Listing Files and Understanding LS Output</a></p>
 <ol>
-<li><a href="#Decoding **ls -l** Output">Decoding <strong>ls -l</strong> Output</a></li>
-<li>Listing All Files, Including Hidden Files</li>
-<li>Listing Files by Type</li>
-<li>Symbolic Links</li>
+<li><a href="#decoding-ls--l-output">Decoding <strong>ls -l</strong> Output</a></li>
+<li><a href="#listing-all-files-including-hidden-files">Listing All Files, Including Hidden Files</a></li>
+<li><a href="#listing-files-by-type">Listing Files by Type</a></li>
+<li><a href="#symbolic-links">Symbolic Links</a></li>
 <li><a href="#listing-files-by-time-and-in-reverse">Listing Files by Time and in Reverse</a></li>
 <li><a href="#the-tree-command">The <strong>tree</strong> command</a></li>
 <li><a href="#list-directories-not-contents">List Directories, Not Contents</a></li>
@@ -1077,6 +1077,26 @@ body .markdown-body
 <li><a href="#working-with-spaces-in-names">Working with Spaces in Names</a></li>
 </ol>
 </li>
+<li>
+<p><a href="#7-file-and-directory-permissions-explained---part-one">File and Directory Permissions Explained - Part One</a></p>
+<ol>
+<li><a href="#permissions">Permissions</a></li>
+<li><a href="#permissions---files-vc-directories">Permissions - Files vc Directories</a></li>
+<li><a href="#permission-categories">Permission Categories</a></li>
+<li><a href="#groups">Groups</a></li>
+<li><a href="#secret-decoder-ring">Secret Decoder Ring</a></li>
+<li><a href="#changing-permissions">Changing Permissions</a></li>
+<li><a href="#numeric-based-permissions">Numeric Based Permissions</a></li>
+<li><a href="#order-has-meaning">Order Has Meaning</a></li>
+<li><a href="#commonly-used-permissions">Commonly Used Permissions</a></li>
+</ol>
+</li>
+<li><a href="#8-finding-files-and-directories">Finding Files and Directories</a><ol>
+<li><a href="#the-find-command">The <strong>find</strong> command</a></li>
+<li><a href="#a-fast-find--locate">A fast find <strong>-locate</strong></a></li>
+</ol>
+</li>
+<li><a href=""></a></li>
 </ol>
 <h2 id="1-linux-directory-structure"><a name="user-content-1-linux-directory-structure" href="#1-linux-directory-structure" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1. Linux Directory Structure</h2>
 <p>The filesystem hierarchy</p>
@@ -1525,14 +1545,15 @@ total 4
 -rw-rw-r-- 1 ubuntu ubuntu 12 Fev 19 16:51 file.txt
 </code></pre>
 
-<pre><code>* Permissions: -rw-rw-r--
-* Number of links: 1
-* Owner name: ubuntu
-* Group name: ubuntu
-* Number of bytes in the file: 12
-* Last modification time: Fev 19 16:51
-* File name: file.txt
-</code></pre>
+<ul>
+<li>Permissions: -rw-rw-r&ndash;</li>
+<li>Number of links: 1</li>
+<li>Owner name: ubuntu</li>
+<li>Group name: ubuntu</li>
+<li>Number of bytes in the file: 12</li>
+<li>Last modification time: Fev 19 16:51</li>
+<li>File name: file.txt</li>
+</ul>
 <h3 id="listing-all-files-including-hidden-files"><a name="user-content-listing-all-files-including-hidden-files" href="#listing-all-files-including-hidden-files" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Listing All Files, Including Hidden Files</h3>
 <ul>
 <li>Hidden files begin with a period.<ul>
@@ -1857,4 +1878,630 @@ ubuntu@ubuntu-vm:~$ cd my-directory
 </li>
 <li>Hidden files and directories</li>
 <li>Spaces in file names</li>
+</ul>
+<h2 id="7-file-and-directory-permissions-explained-part-one"><a name="user-content-7-file-and-directory-permissions-explained-part-one" href="#7-file-and-directory-permissions-explained-part-one" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>7. File and Directory Permissions Explained - Part One</h2>
+<h3 id="permissions"><a name="user-content-permissions" href="#permissions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Permissions</h3>
+<pre><code>ubuntu@ubuntu-vm:~/Documents/my-directory$ ls -ls
+total 0
+0 -rw-rw-r-- 1 ubuntu ubuntu 0 Fev 19 20:23 my-file.txt
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td>Regular file</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Directory</td>
+</tr>
+<tr>
+<td>&#124;</td>
+<td>Symbolic link</td>
+</tr>
+<tr>
+<td>r</td>
+<td>read</td>
+</tr>
+<tr>
+<td>w</td>
+<td>write</td>
+</tr>
+<tr>
+<td>x</td>
+<td>execute</td>
+</tr>
+</tbody>
+</table>
+<h3 id="permissions-files-vc-directories"><a name="user-content-permissions-files-vc-directories" href="#permissions-files-vc-directories" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Permissions - Files vc Directories</h3>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>File</th>
+<th>Directory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read (r)</td>
+<td>Allows a file to be read</td>
+<td>Allow a file names in the directory to be read</td>
+</tr>
+<tr>
+<td>Write (w)</td>
+<td>Allows a file to modified</td>
+<td>Allows entries to be modified within the directory</td>
+</tr>
+<tr>
+<td>Execute (x)</td>
+<td>Allows the execution of a file</td>
+<td>Allows access to contents and metadata for entries</td>
+</tr>
+</tbody>
+</table>
+<h3 id="permission-categories"><a name="user-content-permission-categories" href="#permission-categories" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Permission Categories</h3>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u</td>
+<td>User</td>
+</tr>
+<tr>
+<td>g</td>
+<td>Group</td>
+</tr>
+<tr>
+<td>o</td>
+<td>Other</td>
+</tr>
+<tr>
+<td>a</td>
+<td>All</td>
+</tr>
+</tbody>
+</table>
+<h3 id="groups"><a name="user-content-groups" href="#groups" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Groups</h3>
+<ul>
+<li>Every user is in at least on group</li>
+<li>User can belong to many groups</li>
+<li>Groups are used to organize users</li>
+<li>The <strong>groups</strong> command display a user&rsquo;s groups</li>
+<li>you can also use <strong>id -Gn</strong></li>
+</ul>
+<pre><code>ubuntu@ubuntu-vm:~$ groups
+ubuntu adm cdrom sudo dip plugdev lpadmin sambashare
+ubuntu@ubuntu-vm:~$ id -Gn
+ubuntu adm cdrom sudo dip plugdev lpadmin sambashare
+</code></pre>
+
+<h3 id="secret-decoder-ring"><a name="user-content-secret-decoder-ring" href="#secret-decoder-ring" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Secret Decoder Ring</h3>
+<ul>
+<li><strong>-rw-rw-r&ndash; 1 ubuntu ubuntu 0 Fev 19 20:23 my-file.txt</strong><ul>
+<li><strong>-</strong>: File type</li>
+<li><strong>rw-</strong>: User permission</li>
+<li><strong>r&ndash;</strong>: Group permission</li>
+<li><strong>r&ndash;</strong>: Other Users permission</li>
+</ul>
+</li>
+</ul>
+<h3 id="changing-permissions"><a name="user-content-changing-permissions" href="#changing-permissions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Changing Permissions</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chmod</td>
+<td>Change mode command</td>
+</tr>
+<tr>
+<td>ugoa</td>
+<td>User category user, group, toher, all</td>
+</tr>
+<tr>
+<td><strong>+</strong> <strong>-</strong> <strong>+</strong></td>
+<td>Add, subtract, or set permissions</td>
+</tr>
+<tr>
+<td>rwx</td>
+<td>Read, Write, Execute</td>
+</tr>
+</tbody>
+</table>
+<pre><code>ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-r--r-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod g+w my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-rw-r-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod g+wx my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-rwxr-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod u+rwx,g-x my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rwxrw-r-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod a=r my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-r--r--r-- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod u=rwx,g=rx,o= my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rwxr-x--- 1 ubuntu ubuntu 0 Fev 19 20:45 my-data.data
+</code></pre>
+
+<h3 id="numeric-based-permissions"><a name="user-content-numeric-based-permissions" href="#numeric-based-permissions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Numeric Based Permissions</h3>
+<table>
+<thead>
+<tr>
+<th>r</th>
+<th>w</th>
+<th>x</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>Value for off</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>Binary value for on</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>base 10 value for on</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Options:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Octal</th>
+<th>Binary</th>
+<th>String</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>&mdash;</td>
+<td>No permissions</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>&ndash;x</td>
+<td>Execute only</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>-w-</td>
+<td>Write only</td>
+</tr>
+<tr>
+<td>3</td>
+<td>11</td>
+<td>-wx-</td>
+<td>Write and execute (2+1)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>100</td>
+<td>r&ndash;</td>
+<td>Read only</td>
+</tr>
+<tr>
+<td>5</td>
+<td>101</td>
+<td>r-x</td>
+<td>Read and execute (4+1)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>110</td>
+<td>rw-</td>
+<td>Read and write (4+2)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>111</td>
+<td>rwx</td>
+<td>Read, write, and execute (4+2+1)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="order-has-meaning"><a name="user-content-order-has-meaning" href="#order-has-meaning" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Order Has Meaning</h3>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>U</th>
+<th>G</th>
+<th>O</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Symbolic</td>
+<td>rwx</td>
+<td>r-x</td>
+<td>r&ndash;</td>
+</tr>
+<tr>
+<td>Binary</td>
+<td>111</td>
+<td>101</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Decimal</td>
+<td>7</td>
+<td>5</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="commonly-used-permissions"><a name="user-content-commonly-used-permissions" href="#commonly-used-permissions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Commonly Used Permissions</h3>
+<table>
+<thead>
+<tr>
+<th>Symbolic</th>
+<th>Octal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-rwx------</td>
+<td>700</td>
+</tr>
+<tr>
+<td>-rwxr-xr-x</td>
+<td>755</td>
+</tr>
+<tr>
+<td>-rw-rw-r&ndash;</td>
+<td>664</td>
+</tr>
+<tr>
+<td>-rw-rw----</td>
+<td>660</td>
+</tr>
+<tr>
+<td>-rw-r&ndash;r&ndash;</td>
+<td>644</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-file-and-directory-permissions-explained-part-two"><a name="user-content-8-file-and-directory-permissions-explained-part-two" href="#8-file-and-directory-permissions-explained-part-two" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>8 File and Directory Permissions Explained - Part Two</h3>
+<h3 id="working-with-groups"><a name="user-content-working-with-groups" href="#working-with-groups" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Working with groups</h3>
+<ul>
+<li>New files belong to your primary group</li>
+<li>The <strong>chgrp</strong> command changes the group</li>
+</ul>
+<pre><code>ubuntu@ubuntu-vm:~$ chgrp adm my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-r--r-- 1 ubuntu adm 0 Fev 19 20:45 my-data.data
+
+ubuntu@ubuntu-vm:~$ chmod g+w my-data.data
+ubuntu@ubuntu-vm:~$ ls -l my-data.data
+-rw-rw-r-- 1 ubuntu adm 0 Fev 19 20:45 my-data.data
+</code></pre>
+
+<h3 id="directory-permissions-revisited"><a name="user-content-directory-permissions-revisited" href="#directory-permissions-revisited" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Directory Permissions Revisited</h3>
+<ul>
+<li>Permissions on a directory can effect the files in the directory</li>
+<li>If the file permissions look correct, start checking directory permissions</li>
+<li>Work your way up to the root</li>
+</ul>
+<h3 id="file-creation-mask"><a name="user-content-file-creation-mask" href="#file-creation-mask" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>File Creation Mask</h3>
+<h3 id="the-umask-command"><a name="user-content-the-umask-command" href="#the-umask-command" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The <strong>umask</strong> command</h3>
+<h3 id="octal-substraction-is-an-estimation"><a name="user-content-octal-substraction-is-an-estimation" href="#octal-substraction-is-an-estimation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Octal Substraction is an Estimation</h3>
+<h3 id="common-umask-modes"><a name="user-content-common-umask-modes" href="#common-umask-modes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Common umask modes</h3>
+<p>Special Modes</p>
+<ul>
+<li>File creation mask determines default permissions</li>
+<li>If no mask were used permissions would be:<ul>
+<li>777 for directories</li>
+<li>666 for files</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-umask-command_1"><a name="user-content-the-umask-command_1" href="#the-umask-command_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The <strong>umask</strong> command</h3>
+<pre><code>$ umask [-S] [mode]
+</code></pre>
+
+<ul>
+<li>Sets the file creation mask to mode, if given</li>
+<li>Use -S to for symbolic notation</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>Directory</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base Permission</td>
+<td>777</td>
+<td>666</td>
+</tr>
+<tr>
+<td>Subtract Umask</td>
+<td>-022</td>
+<td>-022</td>
+</tr>
+<tr>
+<td>Creations Permission</td>
+<td>755</td>
+<td>644</td>
+</tr>
+</tbody>
+</table>
+<h3 id="octal-substraction-is-an-estimation_1"><a name="user-content-octal-substraction-is-an-estimation_1" href="#octal-substraction-is-an-estimation_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Octal Substraction is an Estimation</h3>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>Directory</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base Permission</td>
+<td>777</td>
+<td>666</td>
+</tr>
+<tr>
+<td>Subtract Umask</td>
+<td>-007</td>
+<td>-007</td>
+</tr>
+<tr>
+<td>Creations Permission</td>
+<td>770</td>
+<td>660*</td>
+</tr>
+</tbody>
+</table>
+<h3 id="common-umask-modes_1"><a name="user-content-common-umask-modes_1" href="#common-umask-modes_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Common umask modes</h3>
+<ul>
+<li>022</li>
+<li>002</li>
+<li>077</li>
+<li>007</li>
+</ul>
+<h3 id="special-modes"><a name="user-content-special-modes" href="#special-modes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Special Modes</h3>
+<ul>
+<li><strong>umask 0022</strong> is the same as <strong>umask 022</strong></li>
+<li><strong>chmod 0644</strong> is the same as <strong>chmod 644</strong></li>
+<li>The special mode are:<ul>
+<li>setuid</li>
+<li>setgid</li>
+<li>sticky</li>
+</ul>
+</li>
+</ul>
+<pre><code>ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ umask
+0002
+
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ umask -S
+u=rwx,g=rwx,o=rx
+
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ ls -l
+total 4
+drwxrwxr-x 2 ubuntu ubuntu 4096 Fev 19 22:29 a-dir
+-rw-rw-r-- 1 ubuntu ubuntu    0 Fev 19 22:29 a-file
+
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ umask 007
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ umask -S
+u=rwx,g=rwx,o=
+
+ubuntu@ubuntu-vm:~/Documents/my-directory/testumask$ ls -l
+total 4
+drwxrwx--- 2 ubuntu ubuntu 4096 Fev 19 22:31 a-dir
+-rw-rw---- 1 ubuntu ubuntu    0 Fev 19 22:31 a-file
+</code></pre>
+
+<h3 id="summary_4"><a name="user-content-summary_4" href="#summary_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Summary</h3>
+<ul>
+<li>Symbolic permission</li>
+<li>Numeric/octal permissions</li>
+<li>File versus directory permissions</li>
+<li>Changing permissions</li>
+<li>Working with groups</li>
+<li>File creation mask</li>
+</ul>
+<h2 id="8-finding-files-and-directories"><a name="user-content-8-finding-files-and-directories" href="#8-finding-files-and-directories" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>8. Finding Files and Directories</h2>
+<h3 id="the-find-command"><a name="user-content-the-find-command" href="#the-find-command" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The <strong>find</strong> command</h3>
+<pre><code>$ find [path] [exporession]
+</code></pre>
+
+<ul>
+<li>
+<p>Recursive finds files in path that match expression. If no arguments are supplied it find all files in the current directory.</p>
+</li>
+<li>
+<p>Find options:</p>
+<ul>
+<li><strong>-name [pattern]</strong>: Find files and directories that match pattern</li>
+<li><strong>-iname [pattern]</strong>: Line <strong>-name</strong>, but ignores case.</li>
+<li><strong>-ls</strong>: Performs an <strong>ls</strong> on each of the found items.</li>
+<li><strong>-mtime [days]</strong>: Finds files that are days old.</li>
+<li><strong>-size [num]</strong>: Finds file that are of size <strong>num</strong></li>
+<li><strong>-newer file</strong>: Finds files that are newer than file</li>
+<li><strong>-exec command {} \;</strong> Run command against all the files that are found</li>
+</ul>
+</li>
+</ul>
+<pre><code>ubt-docker@ubuntu-vm:~$ find
+ubt-docker@ubuntu-vm:~$ find .
+</code></pre>
+
+<pre><code>ubt-docker@ubuntu-vm:~$ find /sbin -name makedev
+ubt-docker@ubuntu-vm:~$
+
+ubt-docker@ubuntu-vm:~$ find /sbin -iname makedev
+/sbin/MAKEDEV
+
+ubt-docker@ubuntu-vm:~$ find /sbin -name *v
+/sbin/mkfs.ext4dev
+/sbin/iwpriv
+/sbin/fsck.ext4dev
+/sbin/blockdev
+
+
+</code></pre>
+
+<pre><code>ubt-docker@ubuntu-vm:~$ find . -mtime +10 -mtime -13
+</code></pre>
+
+<pre><code>ubt-docker@ubuntu-vm:~$ find . -name n* -ls
+557059      4 drwxr-xr-x   2 ubt-docker ubuntu       4096 Fev 22 13:59 ./new-file.txt
+</code></pre>
+
+<pre><code>ubt-docker@ubuntu-vm:~$ find . -size +1M
+./18344_1464633886.mp3
+ubt-docker@ubuntu-vm:~$ find . -size +1K
+ubt-docker@ubuntu-vm:~$ find . -size +1G
+</code></pre>
+
+<pre><code>ubt-docker@ubuntu-vm:~$ find . -type d -newer new-file.txt/
+.
+./Documents
+</code></pre>
+
+<pre><code>ubt-docker@ubuntu-vm:~$ find . -exec file {} \;
+</code></pre>
+
+<h3 id="a-fast-find-locate"><a name="user-content-a-fast-find-locate" href="#a-fast-find-locate" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>A fast find <strong>-locate</strong></h3>
+<pre><code>ubt-docker@ubuntu-vm:~$ locate [pattern]
+</code></pre>
+
+<ul>
+<li>Lists files that match pattern</li>
+<li>Faster than the find command</li>
+<li>Queries an index</li>
+<li>Results are not in real time</li>
+<li>May not be anabled on all systems</li>
+</ul>
+<h3 id="summary_5"><a name="user-content-summary_5" href="#summary_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Summary</h3>
+<ul>
+<li><strong>find</strong></li>
+<li><strong>locate</strong></li>
+</ul>
+<h2 id="9-viewing-files-and-the-nano-editor"><a name="user-content-9-viewing-files-and-the-nano-editor" href="#9-viewing-files-and-the-nano-editor" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>9. Viewing Files and the Nano Editor</h2>
+<ul>
+<li><strong>cat [file-name]</strong>: Display the contents of file</li>
+<li><strong>more [file-name]</strong>: Browse through a text file</li>
+<li><strong>less [file-name]</strong>: More features than more</li>
+<li><strong>head [file-name]</strong>: Output the beginning (or top) portion of file</li>
+<li><strong>tail [file-name]</strong>: Output the endind (or bottom) portion of file</li>
+</ul>
+<h3 id="head-and-tail"><a name="user-content-head-and-tail" href="#head-and-tail" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Head and Tail</h3>
+<ul>
+<li>Display only 10 lines by default</li>
+<li>Change this behavior with <strong>-n</strong> flag<ul>
+<li><strong>n</strong>: number of lines<br />
+<pre><code>ubt-docker@ubuntu-vm:~$ tail -15 [file-name]
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="viewing-files-in-real-time"><a name="user-content-viewing-files-in-real-time" href="#viewing-files-in-real-time" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Viewing files in real time</h3>
+<ul>
+<li><strong>-f</strong>: Follow the file, display data as it is being written to the file<br />
+<pre><code>ubt-docker@ubuntu-vm:~$ tail -f [file-name]
+</code></pre></li>
+</ul>
+<h3 id="nano-editor"><a name="user-content-nano-editor" href="#nano-editor" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Nano Editor</h3>
+<ul>
+<li>Nano is a simple editor</li>
+<li>Easy to learn</li>
+<li>Not as adcanced as <strong>vi</strong> or <strong>emacs</strong></li>
+<li>If nano isn&rsquo;t available, look for pico</li>
+</ul>
+<pre><code>ubt-docker@ubuntu-vm:~$ nano [file-name]
+</code></pre>
+
+<ul>
+<li>Commands<ul>
+<li><strong>Ctrl + G</strong>: Get help</li>
+</ul>
+</li>
+</ul>
+<h3 id="summary_6"><a name="user-content-summary_6" href="#summary_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Summary</h3>
+<ul>
+<li>The are various commands that display the contents of files</li>
+<li>The nano editor is easy to use and learn</li>
+</ul>
+<h2 id="editing-files-with-vi"><a name="user-content-editing-files-with-vi" href="#editing-files-with-vi" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Editing Files with Vi</h2>
+<h3 id="the-vi-editor"><a name="user-content-the-vi-editor" href="#the-vi-editor" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The Vi Editor</h3>
+<ul>
+<li>has advanced and powerful features</li>
+<li>Not intuitive</li>
+<li>Harder to learn than <strong>nano</strong></li>
+<li>
+<p>Requires a time investiment</p>
+</li>
+<li>
+<p><strong>vi [file-name]</strong>: Create/Edit file<br />
+<pre><code>ubt-docker@ubuntu-vm:~$ vi [file-name]
+</code></pre></p>
+</li>
+<li>
+<p><strong>vim [file-name]</strong>: Same as <strong>vi</strong>, but more features<br />
+<pre><code>ubt-docker@ubuntu-vm:~$ vim [file-name]
+</code></pre></p>
+</li>
+<li>
+<p><strong>view [file-name]</strong>: Starts vim in read-only mode<br />
+<pre><code>ubt-docker@ubuntu-vm:~$ vim [file-name]
+</code></pre></p>
+</li>
+</ul>
+<h3 id="vi-command-mode-and-navigation"><a name="user-content-vi-command-mode-and-navigation" href="#vi-command-mode-and-navigation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Vi Command Mode and Navigation</h3>
+<ul>
+<li><strong>k</strong>:</li>
+<li><strong>j</strong>:</li>
+<li><strong>h</strong>:</li>
+<li><strong>l</strong>:</li>
+<li><strong>w</strong>:</li>
+<li><strong>b</strong>:</li>
 </ul></article></body></html>
