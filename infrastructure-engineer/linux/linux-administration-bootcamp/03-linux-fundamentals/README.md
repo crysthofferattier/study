@@ -1233,3 +1233,5 @@ ubt-docker@ubuntu-vm:~$ vim [file-name]
 * **c$**: Change the next from the current position
 * **C**: Same as **c$**
 * **~**: Reverses the case of a character
+
+
