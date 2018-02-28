@@ -19,6 +19,7 @@
 * Python
 * [Data science and machine learning with python](https://www.udemy.com/data-science-and-machine-learning-with-python-hands-on/) - Go hands-on with the neural network, artificial intelligence, and machine learning techniques employers are seeking!
 * [Angular](https://www.udemy.com/the-complete-guide-to-angular-2/) - Master Angular (Angular 2+, incl. Angular 5) and build awesome, reactive web apps with the successor of Angular.js 
+* [Dev. Docs](http://devdocs.io/)
 
 ### Infrastructure Engineer
 * [Docker Mastery](https://www.udemy.com/docker-mastery/) - v17.09 Latest! Build, compose, deploy, and manage Docker containers from development to DevOps based Swarm clusters 
@@ -29,3 +30,11 @@
 ### Language
 - [SEDA College](http://www.sedacollegeonline.com/) - Free english course
 - Japanese
+
+### GitHub awesome list's
+
+* **[awesome-awesomeness](https://github.com/bayandin/awesome-awesomeness)**
+* [Data Science](https://github.com/bulutyazilim/awesome-datascience)
+* [Machine Learning & Deep Learning Tutorials](https://github.com/ujjwalkarn/Machine-Learning-Tutorials/blob/master/README.md)
+* [Python](https://github.com/vinta/awesome-python)
+* [Bash](https://github.com/awesome-lists/awesome-bash)
