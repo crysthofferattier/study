@@ -1,1 +1,0 @@
-### Data Science and Machine Learning with Python hands on
