@@ -43,3 +43,11 @@ if ($username == "askar" && $password == '123456') {
 #### example5.py
 
 ## 14. Write python script to control a web shell
+
+#### example6.py
+
+## 15. Write python script to perform dictionary attack on web servers
+
+#### example7.py
+
+* HTTP Protocols: [w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)

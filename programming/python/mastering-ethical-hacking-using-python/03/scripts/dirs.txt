@@ -1,0 +1,9 @@
+administrator
+file.php
+data
+dashboard
+admin
+cgi-bin
+check.html
+mutillidae/
+phpMyAdmin/
