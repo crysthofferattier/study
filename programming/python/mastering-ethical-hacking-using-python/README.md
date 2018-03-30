@@ -84,8 +84,7 @@ root@kali:~# ./example3.py
 * scapy
 
 ```php
-root@kali:~# sudo apt install python3-pip
-root@kali:~# pip3 install wifi wireless scapy
+root@kali:~# pip install wifi wireless scapy
 ```
 
 ```php
