@@ -1,10 +1,6 @@
-# Offensive Python | Mastering Ethical Hacking Using Python
+# Network security with python
 
-##### Course [link](https://www.udemy.com/offensive-python-mastering-ethical-hacking-using-python/)
-
-## Section 02
-
-### 4. Introduction to python sockets
+## 4. Introduction to python sockets
 
 ##### [Python docs. Socket](https://docs.python.org/2/library/socket.html)
 
@@ -16,7 +12,7 @@
 root@kali:~# ./example1.py
 ```
 
-### 5. Write customized port scanner in python
+## 5. Write customized port scanner in python
 
 * We will use python sockets to build the scanner
 * The scanner will be fully customized
@@ -26,7 +22,7 @@ root@kali:~# ./example1.py
 root@kali:~# ./example2.py
 ```
 
-### 6. Perform banner grabbing on open ports using netcat
+## 6. Perform banner grabbing on open ports using netcat
 
 > root@kali:~# nc -vv [host] [port]
 
@@ -36,13 +32,13 @@ Connection to 192.168.0.104 22 port [tcp/ssh] succeeded!
 SSH-2.0-OpenSSH_4.7p1 Debian-8ubuntu1
 ```
 
-### 7. Write python script to bypass traffic using SOCKS - TOR network (part 1)
+## 7. Write python script to bypass traffic using SOCKS - TOR network (part 1)
 
 #### The Theory
 
 ![traffic](https://preview.ibb.co/gUDSh7/image.png)
 
-### 8. Write python script to bypass traffic using SOCKS - TOR network (part 2)
+## 8. Write python script to bypass traffic using SOCKS - TOR network (part 2)
 
 * Setup TOR on linux machine
 * SOCKS library and how we an use it
@@ -71,7 +67,7 @@ root@kali:~# pip install PySocks
 root@kali:~# ./example3.py
 ```
 
-### 10. Write python Jammer to jam wifi networks - Part1 (find all wifi networks)
+## 10. Write python Jammer to jam wifi networks - Part1 (find all wifi networks)
 
 * Find all the nearby wifi networks
 * Set the wifi adapter to monitor mode

@@ -38,3 +38,13 @@ True
 ##### rainbow_table.py
 
 ## 29. Write python script to generate rainbow tables - Part 3 (save the results)
+
+##### rainbow_table.py
+
+## 30. Write python script to calculate checksum
+
+##### check_sum.py
+
+## 31. Write secure python reverse shell with ssl
+
+##### secure_shell.py
